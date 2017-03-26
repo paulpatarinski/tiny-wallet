@@ -13,7 +13,9 @@
     "emulate:android": "ionic emulate android --livereload",
     "run": "npm run build && ionic run ios",
     "run:android": "npm run build && ionic run android",
-    "resources": "ionic resources"
+    "resources": "ionic resources",
+    "uitest:build": "cd ui_tests && npm run build",
+    "uitest:run": "cd ui_tests && npm run test:ios"
   },
   "dependencies": {
     "@angular/common": "2.4.8",
