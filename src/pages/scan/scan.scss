@@ -1,0 +1,40 @@
+#wallet {
+page-scan {
+    .card {
+        width: 98%;
+        margin-top: 10px;
+        padding : 1%;
+        border-radius: 6%;
+        background: #cc0005; 
+    }
+
+    .logo {
+        padding : 0;
+
+        img {
+            height : 25px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 5px;
+        }
+    }
+
+    .toolbar-ios {
+        padding-top: 24px;        
+        min-height: 64px;
+    }
+
+    .barcode-wrapper {
+        text-align: center;
+        padding: 0;
+        margin-bottom: 5px;
+
+        svg
+        {
+            height: 234px;
+            width: 98%;
+            border-radius: 4%;
+        }
+    }
+}
+}

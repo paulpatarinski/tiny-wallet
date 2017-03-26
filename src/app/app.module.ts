@@ -1,35 +1,50 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { RavenErrorHandler } from "../components/raven-error-handler";
 import * as Raven from 'raven-js';
+import { ScanPage } from "../pages/scan/scan";
+import { CardTypeModal } from "../pages/card-type-modal/card-type";
+import { BarcodeScannerService } from "../services/barcode.scanner.service";
+import { BarcodeFormatMapper } from "../services/barcode.format.mapper";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
 
 Raven
   .config('https://193b0d50ae2a487982840688079da3c6@sentry.io/152054')
   .install();
 
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ScanPage,
+    CardTypeModal
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '',
+      tabsHideOnSubPages: true,
+      statusPadding: true,
+      platforms: {
+        statusPadding: true,
+        ios: {
+          statusbarPadding: true,
+        }
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ScanPage,
+    CardTypeModal
   ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    { provide: ErrorHandler, useClass: RavenErrorHandler },
-    RavenErrorHandler
-  ]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, RavenErrorHandler]
 })
+
 export class AppModule { }

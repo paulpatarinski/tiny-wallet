@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button ion-button (click)="cancel()">
+                <span ion-text color="primary" showWhen="ios">Cancel</span>
+                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title>Scan</ion-title>
+
+        <ion-buttons end>
+            <button ion-button (click)="scanBarcode()">
+                Rescan
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="card">
+        <ion-row>
+            <ion-col class="logo">
+                <img src="assets/card-types/target.svg" />
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="barcode-wrapper">
+                <svg id="barcode"></svg>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-item>
+        <ion-label stacked>Store Name</ion-label>
+        <ion-input type="text" [(ngModel)]="card.storeName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Card Number</ion-label>
+        <ion-input type="text" (input)='accountNumberChanged($event.target.value)' [(ngModel)]="card.accountNumber"></ion-input>
+    </ion-item>
+</ion-content>

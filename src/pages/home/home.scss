@@ -1,3 +1,26 @@
-page-home {
+#wallet {
+    page-home {
+        ion-content {
+            background: $dark;
+        }
+ .add-card {
+            background: $dark;
+            text-align: center; 
+            padding-top: 60px;
+            padding-bottom: 60px;
+            border : 1px solid $gray-300;
+            border-radius: 8%;
+            width : 98%;
+            margin : 1%;
+            
+            ion-icon {
+                color: $gray-300;
+            }
 
+            ion-label {
+                margin: 0;
+                color: $gray-300;
+            }
+        }
+}
 }

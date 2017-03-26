@@ -38,12 +38,11 @@
     "@angular/platform-browser": "2.4.8",
     "@angular/platform-browser-dynamic": "2.4.8",
     "@angular/platform-server": "2.4.8",
-    "@ionic-native/core": "3.1.0",
-    "@ionic-native/splash-screen": "3.1.0",
-    "@ionic-native/status-bar": "3.1.0",
     "@ionic/storage": "2.0.0",
-    "ionic-angular": "2.3.0",
+    "ionic-angular": "2.2.0",
+    "ionic-native": "2.8.1",
     "ionicons": "3.0.0",
+    "jsbarcode": "^3.5.8",
     "rxjs": "5.0.1",
     "sw-toolbox": "3.4.0",
     "zone.js": "0.7.2"
@@ -51,7 +50,9 @@
   "devDependencies": {
     "@ionic/app-scripts": "1.1.4",
     "raven-js": "^3.13.1",
-    "typescript": "2.0.9"
+    "typescript": "2.0.9",
+    "@ionic/cli-plugin-cordova": "0.0.9",
+    "@ionic/cli-build-ionic-angular": "0.0.3"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",

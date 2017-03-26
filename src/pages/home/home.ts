@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-
-import { NavController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
+import { CardTypeModal } from "../card-type-modal/card-type";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController) {
-    
+  constructor(public modalCtrl: ModalController) {
   }
 
+  navToScan() {
+    let selectCardTypeModal = this.modalCtrl.create(CardTypeModal);
+    selectCardTypeModal.present();
+  }
 }
