@@ -32,11 +32,6 @@
     </ion-grid>
 
     <ion-item>
-        <ion-label stacked>Store Name</ion-label>
-        <ion-input type="text" [(ngModel)]="card.storeName"></ion-input>
-    </ion-item>
-
-    <ion-item>
         <ion-label stacked>Card Number</ion-label>
         <ion-input type="text" (input)='accountNumberChanged($event.target.value)' [(ngModel)]="card.accountNumber"></ion-input>
     </ion-item>
