@@ -24,7 +24,7 @@
     "uitest:run:ios": "cd ui_tests && npm run test:ios",
     "uitest:run:android": "cd ui_tests && npm run test:android",
     "prescreenshots": "rimraf fastlane/metadata/android/en-US/images/phoneScreenshots/*.png",
-    "screenshots": "cd ui_tests && npm run screenshots && cd .. && npm run screenshots:frame",
+    "screenshots:android": "cd ui_tests && npm run screenshots:android && cd .. && npm run screenshots:frame",
     "screenshots:frame": "cd fastlane/metadata/android/en-US/images && fastlane frameit",
     "postscreenshots": "rimraf \"fastlane/metadata/android/en-US/images/phoneScreenshots/!(*_framed).png\""
   },

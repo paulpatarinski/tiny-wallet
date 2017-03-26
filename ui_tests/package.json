@@ -11,7 +11,7 @@
     "test:android": "npm run restore && npm run build && npm run test:nexus",
     "test:nexus": "json -I -f package.json -e 'this.config.phone=\"true\"' && mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe bin/Debug/ui_tests.dll -run:\"ui_tests.Tests(Android)\"",
     "copy": "node scripts/copy-screenshots.js",
-    "screenshots": "npm run test:android && npm run copy"
+    "screenshots:android": "npm run test:android && npm run copy"
   },
   "config": {
     "apk_path": "../../../apps/ion2Seed.apk",

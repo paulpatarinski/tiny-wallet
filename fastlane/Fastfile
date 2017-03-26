@@ -27,7 +27,7 @@ platform :android do
       alias: app_android_key,
     )
     zipalign(apk_path: "#{lane_context[SharedValues::SIGNED_APK_PATH]}")
-    sh("npm run screenshots")
+    sh("npm run screenshots:android")
     supply(
       apk: "apps/ion2Seed.apk"
     )
