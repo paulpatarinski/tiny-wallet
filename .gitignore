@@ -28,7 +28,20 @@ plugins/android.json
 plugins/ios.json
 www/
 $RECYCLE.BIN/
+apps/*.apk
+apps/*.ipa
+packages/
+bin/
+obj/
 
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+TestResult.xml
+fastlane/screenshots/en-US/*.png
+Preview.html
+report.xml
+*.ipa
+*.cer
+*.dSYM.zip
+*.mobileprovision
