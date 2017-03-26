@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.1.4",
+    "raven-js": "^3.13.1",
     "typescript": "2.0.9"
   },
   "cordovaPlugins": [
