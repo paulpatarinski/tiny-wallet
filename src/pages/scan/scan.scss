@@ -22,6 +22,10 @@ page-scan {
     .toolbar-ios {
         padding-top: 24px;        
         min-height: 64px;
+
+        ion-title {
+            padding: 20px 90px 1px;
+        }
     }
 
     .barcode-wrapper {
