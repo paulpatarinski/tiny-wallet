@@ -11,7 +11,7 @@
 
         <ion-buttons end>
             <button ion-button (click)="scanBarcode()">
-                Rescan
+                Save
             </button>
         </ion-buttons>
     </ion-toolbar>
@@ -31,8 +31,18 @@
         </ion-row>
     </ion-grid>
 
-    <ion-item>
-        <ion-label stacked>Card Number</ion-label>
-        <ion-input type="text" (input)='cardNumberChanged($event.target.value)' [(ngModel)]="card.cardNumber"></ion-input>
-    </ion-item>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-11>
+                <ion-item>
+                    <ion-label stacked>Card Number</ion-label>
+                    <ion-input type="text" (input)='cardNumberChanged($event.target.value)' [(ngModel)]="card.cardNumber"></ion-input>
+                </ion-item>
+            </ion-col>
+
+            <ion-col col-1 align-self-end no-padding (click)="scanBarcode()">
+                <img class="barcode-icon" src="assets/barcode.svg" />
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
