@@ -9,12 +9,12 @@ import JsBarcode from 'jsbarcode';
 })
 export class ScanPage {
     card = {
-        storeName: "",
-        accountNumber: ""
+        cardNumber: ""
     };
 
+    private barcodeOptions = null;
+
     constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService) {
-        this.card.storeName = this.params.data.name;
     }
 
     ionViewWillEnter() {
@@ -24,18 +24,22 @@ export class ScanPage {
     scanBarcode() {
         this.barcodeService.scanBarcode()
             .then((barcodeData) => {
-                this.card.accountNumber = barcodeData.text;
+                this.barcodeOptions = barcodeData.options;
+                this.card.cardNumber = barcodeData.text;
                 this.generateBarcode(barcodeData.text, barcodeData.options);
             })
             .catch(err => console.log);
     }
 
-    accountNumberChanged(accountNumber) {
-        if (accountNumber) {
-            this.generateBarcode(accountNumber, {
+    cardNumberChanged(newCardNumber) {
+        if (newCardNumber) {
+            var defaultBarcodeOptions = {
                 format: "UPC",
                 flat: true
-            });
+            };
+            var options = this.barcodeOptions || defaultBarcodeOptions;
+
+            this.generateBarcode(newCardNumber, options);
         }
     }
 

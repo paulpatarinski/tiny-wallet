@@ -5,7 +5,7 @@ export class BarcodeScannerMock extends BarcodeScanner {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve({
-                    text: "12355435532",
+                    text: "123554355324",
                     format: "UPC_A"
                 });
             }, 1000);
