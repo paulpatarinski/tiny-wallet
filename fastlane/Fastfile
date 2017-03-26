@@ -22,14 +22,14 @@ platform :android do
     sh("npm run ionic:release:build")
     sign_apk(
       apk_path: "platforms/android/build/outputs/apk/android-release-unsigned.apk",
-      signed_apk_path: "apps/ion2Seed.apk",
+      signed_apk_path: "apps/tinywallet.apk",
       keystore_path: "fastlane/release-cred/android.keystore",
       alias: app_android_key,
     )
     zipalign(apk_path: "#{lane_context[SharedValues::SIGNED_APK_PATH]}")
     sh("npm run screenshots:android")
     supply(
-      apk: "apps/ion2Seed.apk"
+      apk: "apps/tinywallet.apk"
     )
   end
 end
