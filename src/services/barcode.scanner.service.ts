@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BarcodeScanner } from 'ionic-native';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BarcodeFormatMapper } from "./barcode.format.mapper";
 import { Platform, LoadingController } from "ionic-angular";
 
@@ -13,7 +13,7 @@ export class BarcodeScannerService {
         resultDisplayDuration: 0
     };
 
-    constructor(public formatMapper: BarcodeFormatMapper, public platform: Platform, public loadingCtrl: LoadingController) { }
+    constructor(public formatMapper: BarcodeFormatMapper, public platform: Platform, public loadingCtrl: LoadingController, public barcodeScanner: BarcodeScanner) { }
 
     scanBarcode(): Promise<any> {
         let loading = this.loadingCtrl.create({
@@ -26,7 +26,7 @@ export class BarcodeScannerService {
             loading.dismiss();
         }, 600);
 
-        return BarcodeScanner.scan(this.scanningOptions)
+        return this.barcodeScanner.scan(this.scanningOptions)
             .then((barcodeData) => {
                 if (!barcodeData || !barcodeData.text)
                     throw 'Unable to scan barcode';
