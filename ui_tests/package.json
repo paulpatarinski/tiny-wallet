@@ -7,15 +7,21 @@
     "build": "npm run clean && xbuild ./ui_tests.csproj",
     "test:ios": "npm run restore && npm run build && npm run test:iphone && npm run test:ipad",
     "test:iphone": "json -I -f package.json -e 'this.config.phone=\"true\"' && mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe bin/Debug/ui_tests.dll -run:\"ui_tests.Tests(iOS)\"",
-    "test:ipad": "json -I -f package.json -e 'this.config.phone=\"false\"' && mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe bin/Debug/ui_tests.dll -run:\"ui_tests.Tests(iOS)\""
+    "test:ipad": "json -I -f package.json -e 'this.config.phone=\"false\"' && mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe bin/Debug/ui_tests.dll -run:\"ui_tests.Tests(iOS)\"",
+    "test:android": "npm run restore && npm run build && npm run test:nexus",
+    "test:nexus": "json -I -f package.json -e 'this.config.phone=\"true\"' && mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe bin/Debug/ui_tests.dll -run:\"ui_tests.Tests(Android)\"",
+    "copy": "node scripts/copy-screenshots.js",
+    "screenshots": "npm run test:android && npm run copy"
   },
   "config": {
+    "apk_path": "../../../apps/ion2Seed.apk",
     "app_bundle_path": "../../../platforms/ios/Build/emulator/ion2Seed.app",
     "iphone_identifier": "00673C92-BEDA-445B-936E-5D811D6635EB",
     "ipad_identifier": "E958A769-F4AD-49F0-BA01-BED71D7536F6",
-    "phone": "false"
+    "phone": "true"
   },
   "devDependencies": {
+    "copyfiles": "^1.2.0",
     "json": "^9.0.4",
     "rimraf": "^2.5.4"
   }

@@ -25,6 +25,8 @@ namespace ui_tests
             {
                 return ConfigureApp
                     .Android
+                    .ApkFile(AppConfig.apk_path)
+                    .EnableLocalScreenshots()
                     .StartApp();
             }
 
@@ -50,6 +52,7 @@ namespace ui_tests
 
         public class Config
         {
+            public string apk_path { get; set; }
             public string app_bundle_path { get; set; }
             public string iphone_identifier { get; set; }
             public string ipad_identifier { get; set; }

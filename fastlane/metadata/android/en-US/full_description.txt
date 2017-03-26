@@ -1,0 +1,1 @@
+A simple to-do app, no permissions or data connection required. Quickly add to-dos, swipe to the right to mark them complete. Straight to the point, so you can focus on getting things done. All to-dos are saved locally on your device keeping them private & secure.

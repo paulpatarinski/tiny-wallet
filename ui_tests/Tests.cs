@@ -26,15 +26,16 @@ namespace ui_tests
         [Test]
         public void Generate_App_Screenshots()
         {
-            app.Repl();
+            TakeScreenshot("Sample Screenshot");
         }
 
         private void TakeScreenshot(string screenshotTitle)
         {
+            var plt = platform == Platform.Android ? "android" : "ios";
             var screenshotFileInfo = app.Screenshot(screenshotTitle);
             var device = AppInitializer.AppConfig.phone ? "phone" : "tablet";
             var newScreenshotName = screenshotFileInfo.Name.Replace("screenshot", device);
-            var newFilePath = $"{screenshotFileInfo.Directory}/{newScreenshotName}";
+            var newFilePath = $"{screenshotFileInfo.Directory}/{plt}-{newScreenshotName}";
             screenshotFileInfo.MoveTo(newFilePath);
         }
     }

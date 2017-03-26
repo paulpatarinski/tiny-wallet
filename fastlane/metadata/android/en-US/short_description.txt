@@ -1,0 +1,1 @@
+A simple to-do app, no permissions or data connection required.

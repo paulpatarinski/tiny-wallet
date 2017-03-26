@@ -15,8 +15,18 @@
     "run": "npm run build && ionic run ios",
     "run:android": "npm run build && ionic run android",
     "resources": "ionic resources",
+    "ionic:release:build": "npm run build:prod && ionic build android --release",
+    "install:apk": "adb install apps/ion2Seed.apk",
+    "prepublish:apk": "rimraf apps/*.apk && rimraf apps/*.ipa",
+    "publish:apk": "fastlane android release",
+    "uitests:init": "cd ui_tests && npm install && npm run restore && npm run build",
     "uitest:build": "cd ui_tests && npm run build",
-    "uitest:run": "cd ui_tests && npm run test:ios"
+    "uitest:run:ios": "cd ui_tests && npm run test:ios",
+    "uitest:run:android": "cd ui_tests && npm run test:android",
+    "prescreenshots": "rimraf fastlane/metadata/android/en-US/images/phoneScreenshots/*.png",
+    "screenshots": "cd ui_tests && npm run screenshots && cd .. && npm run screenshots:frame",
+    "screenshots:frame": "cd fastlane/metadata/android/en-US/images && fastlane frameit",
+    "postscreenshots": "rimraf \"fastlane/metadata/android/en-US/images/phoneScreenshots/!(*_framed).png\""
   },
   "dependencies": {
     "@angular/common": "2.4.8",
