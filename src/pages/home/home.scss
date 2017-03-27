@@ -3,7 +3,31 @@
         ion-content {
             background: $dark;
         }
- .add-card {
+
+        .list-ios {
+            margin : 0;
+        }
+ 
+        .card {
+            height: 220px;
+            max-height: 220px;
+            width: 98%;
+            margin-top: 0px;
+            margin-bottom: 15px;
+            padding : 6%;
+            border-radius: 6%;
+
+            .logo {
+                padding : 0;
+
+                img {
+                    height : 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+        .add-card-wrapper {
             background: $dark;
             text-align: center; 
             padding-top: 60px;

@@ -13,17 +13,47 @@ export class CardService {
     private populateDefaultCardsIfNull(existingCards) {
         var defaultCards: Array<Card> = new Array<Card>();
 
-        defaultCards.push({
-            barcode: null,
-            name: 'Target',
-            activated: false
-        });
+        defaultCards.push(new Card(
+            null,
+            "Target",
+            "#cc0005",
+            "target",
+            true
+        ));
 
-        defaultCards.push({
-            barcode: null,
-            name: 'Costco',
-            activated: false
-        });
+        defaultCards.push(new Card(
+            null,
+            "Adidas",
+            "#cc0005",
+            "adidas",
+            false
+        ));
+
+        defaultCards.push(new Card(
+            null,
+            "Canon",
+            "#FFFFFF",
+            "canon",
+            true
+        ));
+
+        defaultCards.push(new Card(
+            null,
+            "Citi",
+            "#cc0005",
+            "citi",
+            true
+        ));
+
+        defaultCards.push(new Card(
+            null,
+            "Costco",
+            "#cc0005",
+            "costco",
+            true
+        ));
+
+
 
         if (!existingCards) {
             this._storage.set('cards', JSON.stringify(defaultCards));

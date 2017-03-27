@@ -27,6 +27,6 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    this.loadActivatedCards();
+    return this.loadActivatedCards();
   }
 }

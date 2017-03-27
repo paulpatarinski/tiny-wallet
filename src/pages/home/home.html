@@ -9,7 +9,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="add-card" (click)="navToScan()">
+
+  <ion-list>
+    <ion-grid class="card" *ngFor="let card of cards" [style.background]="card.background">
+      <ion-row>
+        <ion-col class="logo">
+          <img [src]="card.logoFullPath" />
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="barcode-wrapper">
+          <svg id="barcode"></svg>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+  <ion-card class="add-card-wrapper" (click)="navToScan()">
     <ion-grid>
       <ion-row>
         <ion-col align-self-center>
