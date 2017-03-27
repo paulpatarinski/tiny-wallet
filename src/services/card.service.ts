@@ -40,7 +40,7 @@ export class CardService {
         defaultCards.push(new Card(
             null,
             "Citi",
-            "#cc0005",
+            "#CCCCCC",
             "citi",
             true
         ));
@@ -48,7 +48,7 @@ export class CardService {
         defaultCards.push(new Card(
             null,
             "Costco",
-            "#cc0005",
+            "#303030",
             "costco",
             true
         ));
