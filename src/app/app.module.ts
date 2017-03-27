@@ -15,7 +15,7 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 import { BarcodeScannerMock } from "../mocks/barcode.scanner.mock";
 import { CardService } from "../services/card.service";
 import { IonicStorageModule } from '@ionic/storage';
-import { BarcodeComponent } from "../components/barcode-control";
+import { BarcodeComponent } from "../components/barcode-component";
 
 Raven
   .config('https://193b0d50ae2a487982840688079da3c6@sentry.io/152054')

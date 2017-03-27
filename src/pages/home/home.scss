@@ -27,13 +27,15 @@
                 }
             }
 
-            .card-barcode {
-                height: 100%;
-                width : 100%;
-
-                svg {
-                    height : 100%;
+            .card-barcode { 
+                barcode {
+                    height: 100%;
                     width : 100%;
+
+                    svg {
+                        height : 100%;
+                        width : 100%;
+                    }
                 }
             }
         }
