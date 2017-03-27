@@ -5,7 +5,7 @@ page-scan {
         margin-top: 10px;
         padding : 1%;
         border-radius: 6%;
-        background: #cc0005; 
+        border: solid 1px $gray-300;
     }
 
     .logo {
@@ -26,10 +26,6 @@ page-scan {
         ion-title {
             padding: 20px 90px 1px;
         }
-    }
-
-    .barcode-icon {
-        
     }
 
     .barcode-wrapper {

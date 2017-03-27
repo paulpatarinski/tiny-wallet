@@ -18,10 +18,10 @@
 </ion-header>
 
 <ion-content>
-    <ion-grid class="card">
+    <ion-grid class="card" [style.background]="card.background">
         <ion-row>
             <ion-col class="logo">
-                <img src="assets/card-logos/target.svg" />
+                <img [src]="card.logoFullPath" />
             </ion-col>
         </ion-row>
         <ion-row>
@@ -36,7 +36,7 @@
             <ion-col col-11>
                 <ion-item>
                     <ion-label stacked>Card Number</ion-label>
-                    <ion-input type="text" (input)='cardNumberChanged($event.target.value)' [(ngModel)]="card.cardNumber"></ion-input>
+                    <ion-input type="text" (input)='cardNumberChanged($event.target.value)' [(ngModel)]="cardNumber"></ion-input>
                 </ion-item>
             </ion-col>
 

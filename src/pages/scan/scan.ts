@@ -2,19 +2,25 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BarcodeScannerService } from "../../services/barcode.scanner.service";
 import JsBarcode from 'jsbarcode';
+import { Card } from "../../models/card";
+import { Barcode } from "../../models/barcode";
 
 @Component({
     selector: 'page-scan',
     templateUrl: 'scan.html'
 })
 export class ScanPage {
-    card = {
-        cardNumber: ""
-    };
+    card: Card;
+    cardNumber: string;
 
     private barcodeOptions = null;
 
     constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService) {
+        this.card = params.data;
+
+        if (this.card && this.card.barcode && this.card.barcode.number) {
+            this.cardNumber = this.card.barcode.number;
+        }
     }
 
     ionViewWillEnter() {
@@ -25,7 +31,7 @@ export class ScanPage {
         this.barcodeService.scanBarcode()
             .then((barcodeData) => {
                 this.barcodeOptions = barcodeData.options;
-                this.card.cardNumber = barcodeData.text;
+                this.cardNumber = barcodeData.text;
                 this.generateBarcode(barcodeData.text, barcodeData.options);
             })
             .catch(err => console.log);

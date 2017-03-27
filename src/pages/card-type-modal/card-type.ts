@@ -33,8 +33,8 @@ export class CardTypeModal {
         return this.loadNonActivatedCards();
     }
 
-    cardSelected(selectedCardType) {
-        this.navCtrl.push(ScanPage, selectedCardType).then(() => {
+    cardSelected(selectedCard: Card) {
+        this.navCtrl.push(ScanPage, selectedCard).then(() => {
             this.viewCtrl.dismiss();
         });
     }
