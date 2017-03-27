@@ -13,6 +13,7 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 import { BarcodeScannerMock } from "../mocks/barcode.scanner.mock";
+import { CardService } from "../services/cards.service";
 
 Raven
   .config('https://193b0d50ae2a487982840688079da3c6@sentry.io/152054')
@@ -46,7 +47,7 @@ Raven
     ScanPage,
     CardTypeModal
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, { provide: BarcodeScanner, useClass: BarcodeScannerMock }, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, RavenErrorHandler]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, { provide: BarcodeScanner, useClass: BarcodeScannerMock }, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, RavenErrorHandler]
 })
 
 export class AppModule { }
