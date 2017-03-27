@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "lokijs": "registry:dt/lokijs#1.2.5+20161128184045"
+  }
+}
