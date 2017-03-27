@@ -60,6 +60,11 @@ export class ScanPage {
         }
     }
 
+    save() {
+        //todo: do an actual save
+        this.navCtrl.pop();
+    }
+
     cancel() {
         this.navCtrl.pop();
     }
