@@ -1,16 +1,17 @@
 import { Injectable } from "@angular/core";
 import { Card } from "../models/card";
+import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class CardService {
     private _storage: Storage;
 
-    constructor(public storage: Storage) {
-        this._storage = storage;
+    constructor(public strg: Storage) {
+        this._storage = strg;
     }
 
     private populateDefaultCardsIfNull(existingCards) {
-        var defaultCards: Array<Card>;
+        var defaultCards: Array<Card> = new Array<Card>();
 
         defaultCards.push({
             barcode: null,
@@ -18,8 +19,14 @@ export class CardService {
             activated: false
         });
 
+        defaultCards.push({
+            barcode: null,
+            name: 'Costco',
+            activated: false
+        });
+
         if (!existingCards) {
-            this._storage.setItem('cards', JSON.stringify(defaultCards));
+            this._storage.set('cards', JSON.stringify(defaultCards));
             return defaultCards;
         }
 
@@ -28,8 +35,10 @@ export class CardService {
 
     private getAllCards(): Promise<Array<Card>> {
         return this._storage.ready().then(() => {
-            return this._storage.getItem('cards');
-        }).then(this.populateDefaultCardsIfNull);
+            return this._storage.get('cards');
+        }).then((existingCards) => {
+            return this.populateDefaultCardsIfNull(existingCards);
+        });
     }
 
     private filterActivated(allCards: Array<Card>): Array<Card> {

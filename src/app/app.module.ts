@@ -13,7 +13,8 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 import { BarcodeScannerMock } from "../mocks/barcode.scanner.mock";
-import { CardService } from "../services/cards.service";
+import { CardService } from "../services/card.service";
+import { IonicStorageModule } from '@ionic/storage';
 
 Raven
   .config('https://193b0d50ae2a487982840688079da3c6@sentry.io/152054')
@@ -38,7 +39,8 @@ Raven
           statusbarPadding: true,
         }
       }
-    })
+    }),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
