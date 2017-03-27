@@ -19,10 +19,21 @@
 
             .logo {
                 padding : 0;
+                margin-bottom: 10px;
 
                 img {
                     height : 100%;
                     width: 100%;
+                }
+            }
+
+            .card-barcode {
+                height: 100%;
+                width : 100%;
+
+                svg {
+                    height : 100%;
+                    width : 100%;
                 }
             }
         }

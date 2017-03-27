@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Card } from "../models/card";
 import { Storage } from '@ionic/storage';
+import { Barcode } from "../models/barcode";
 
 @Injectable()
 export class CardService {
@@ -14,7 +15,7 @@ export class CardService {
         var defaultCards: Array<Card> = new Array<Card>();
 
         defaultCards.push(new Card(
-            null,
+            new Barcode("123554355324", "UPC"),
             "Target",
             "#cc0005",
             "target",
@@ -30,7 +31,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            null,
+            new Barcode("123554355111", "UPC"),
             "Canon",
             "#FFFFFF",
             "canon",
@@ -38,7 +39,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            null,
+            new Barcode("123554355111", "UPC"),
             "Citi",
             "#CCCCCC",
             "citi",
@@ -46,7 +47,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            null,
+            new Barcode("123554355111", "UPC"),
             "Costco",
             "#303030",
             "costco",

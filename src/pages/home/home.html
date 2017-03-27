@@ -18,8 +18,8 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="barcode-wrapper">
-          <svg id="barcode"></svg>
+        <ion-col>
+          <barcode [barcodeNumber]="card.barcode.number" class="card-barcode"></barcode>
         </ion-col>
       </ion-row>
     </ion-grid>
