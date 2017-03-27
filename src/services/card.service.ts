@@ -47,7 +47,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            null,
+            new Barcode("123554355111", "UPC"),
             "Adidas",
             "#cc0005",
             "adidas",

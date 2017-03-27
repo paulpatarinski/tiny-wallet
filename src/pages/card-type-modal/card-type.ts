@@ -5,6 +5,7 @@ import { CardService } from "../../services/card.service";
 import { Card } from "../../models/card";
 
 @Component({
+    selector: 'cart-type-modal',
     templateUrl: 'card-type.html'
 })
 
@@ -29,7 +30,7 @@ export class CardTypeModal {
     }
 
     ionViewWillEnter() {
-        this.loadNonActivatedCards();
+        return this.loadNonActivatedCards();
     }
 
     cardSelected(selectedCardType) {

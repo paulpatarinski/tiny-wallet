@@ -14,8 +14,17 @@
 
 <ion-content>
     <ion-list no-lines>
-        <button ion-item *ngFor="let card of availableCards" (click)="cardSelected(card)">
-    {{ card.name }}
-  </button>
+        <ion-item *ngFor="let card of cards" (click)="cardSelected(card)">
+            <ion-avatar item-left>
+                <ion-grid [style.background]="card.background" class="card-logo">
+                    <ion-row>
+                        <ion-col>
+                            <img [src]="card.logoFullPath">
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-avatar>
+            <h2> {{ card.name }}</h2>
+        </ion-item>
     </ion-list>
 </ion-content>
