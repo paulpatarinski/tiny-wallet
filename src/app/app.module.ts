@@ -52,7 +52,7 @@ Raven
     CardTypeModal,
     BarcodeComponent
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, { provide: BarcodeScanner, useClass: BarcodeScannerMock }, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, RavenErrorHandler]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, BarcodeScanner, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, RavenErrorHandler]
 })
 
 export class AppModule { }
