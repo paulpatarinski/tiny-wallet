@@ -12,8 +12,8 @@ export class BarcodeComponent {
 
     ngAfterViewInit() {
         JsBarcode(this.barcode.nativeElement, this.barcodeNumber, {
-            height: 50,
-            width: 3
+            height: 130,
+            width: 5
         });
     }
 }
