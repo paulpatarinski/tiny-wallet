@@ -9,31 +9,17 @@ import JsBarcode from 'jsbarcode';
 export class BarcodeComponent {
     @ViewChild('barcode') barcode: ElementRef;
     @Input() barcodeNumber;
-    @Input() height;
-    @Input() width;
-
+    @Input() options;
     validCardNumber: Boolean;
-
-    // ngAfterViewInit() {
-    //     try {
-    //         JsBarcode(this.barcode.nativeElement, this.barcodeNumber, {
-    //             height: 130,
-    //             width: 5
-    //         });
-    //         this.validCardNumber = true;
-    //     }
-    //     catch (err) {
-    //         console.log(err);
-    //         this.validCardNumber = false;
-    //     }
-    // }
 
     ngOnChanges(changes: any) {
         try {
-            JsBarcode(this.barcode.nativeElement, this.barcodeNumber, {
-                height: this.height,
-                width: this.width,
-            });
+            if (!this.barcodeNumber || !this.options) {
+                this.validCardNumber = false;
+                return;
+            }
+
+            JsBarcode(this.barcode.nativeElement, this.barcodeNumber, this.options);
             this.validCardNumber = true;
         }
         catch (err) {

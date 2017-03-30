@@ -23,7 +23,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            new Barcode("123554355111", "UPC"),
+            new Barcode("123554355324", "UPC"),
             "Canon",
             "#FFFFFF",
             "canon",
@@ -31,7 +31,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            new Barcode("123554355111", "UPC"),
+            new Barcode("123554355324", "UPC"),
             "Citi",
             "#CCCCCC",
             "citi",
@@ -39,7 +39,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            new Barcode("123554355111", "UPC"),
+            new Barcode("123554355324", "UPC"),
             "Costco",
             "#303030",
             "costco",
@@ -47,7 +47,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            new Barcode("123554355111", "UPC"),
+            new Barcode("123554355324", "UPC"),
             "Adidas",
             "#cc0005",
             "adidas",

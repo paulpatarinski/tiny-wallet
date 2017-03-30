@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BarcodeScannerService } from "../../services/barcode.scanner.service";
-import JsBarcode from 'jsbarcode';
 import { Card } from "../../models/card";
-import { Barcode } from "../../models/barcode";
 
 @Component({
     selector: 'page-scan',
@@ -12,8 +10,7 @@ import { Barcode } from "../../models/barcode";
 export class ScanPage {
     card: Card;
     cardNumber: string;
-
-    private barcodeOptions = null;
+    barcodeOptions = null;
 
     constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService) {
         this.card = params.data;
@@ -51,12 +48,8 @@ export class ScanPage {
 
     generateBarcode(text, opt) {
         if (text && opt) {
-            try {
-                JsBarcode("#barcode", text, opt);
-            }
-            catch (err) {
-                console.log(err);
-            }
+            this.cardNumber = text;
+            this.barcodeOptions = opt;
         }
     }
 
