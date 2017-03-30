@@ -26,7 +26,7 @@
         </ion-row>
         <ion-row>
             <ion-col class="barcode-wrapper">
-                <svg id="barcode"></svg>
+                <barcode [barcodeNumber]="cardNumber" [height]="315" [width]="5"></barcode>
             </ion-col>
         </ion-row>
     </ion-grid>
@@ -41,7 +41,7 @@
             </ion-col>
 
             <ion-col col-1 align-self-end no-padding (click)="scanBarcode()">
-                <img class="barcode-icon" src="assets/barcode.svg" />
+                <img class="barcode-icon" src="assets/scan_barcode.svg" />
             </ion-col>
         </ion-row>
     </ion-grid>
