@@ -19,6 +19,12 @@ export class ScanPage {
 
         if (this.card && this.card.barcode && this.card.barcode.number) {
             this.cardNumber = this.card.barcode.number;
+            var modifiedOptions = this.card.barcode.options;
+
+            modifiedOptions.height = 200;
+            modifiedOptions.width = 4;
+
+            this.barcodeOptions = modifiedOptions;
         }
     }
 
