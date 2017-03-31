@@ -3,7 +3,7 @@ import JsBarcode from 'jsbarcode';
 
 @Component({
     selector: 'barcode',
-    templateUrl: 'barcode-component.html'
+    templateUrl: 'barcode.html'
 })
 
 export class BarcodeComponent {
