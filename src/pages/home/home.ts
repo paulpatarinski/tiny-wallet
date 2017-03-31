@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ModalController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 import { CardTypeModal } from "../card-type-modal/card-type";
 import { Card } from "../../models/card";
 import { CardService } from "../../services/card.service";
+import { ScanPage } from "../scan/scan";
 
 @Component({
   selector: 'page-home',
@@ -11,7 +12,7 @@ import { CardService } from "../../services/card.service";
 export class HomePage {
   cards: Array<Card>;
 
-  constructor(public modalCtrl: ModalController, public cardService: CardService) {
+  constructor(public modalCtrl: ModalController, public navCtrl: NavController, public cardService: CardService) {
   }
 
   navToScan() {
@@ -24,6 +25,15 @@ export class HomePage {
       this.cards = cards;
       console.log(JSON.stringify(cards));
     });
+  }
+
+  navToDetails(selectedCard: Card) {
+    var params = {
+      autoLaunchScan: false,
+      selectedCard: selectedCard
+    };
+
+    this.navCtrl.push(ScanPage, params);
   }
 
   ionViewWillEnter() {

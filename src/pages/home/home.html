@@ -13,7 +13,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-grid class="card" *ngFor="let card of cards" [style.background]="card.background">
+    <ion-grid class="card" *ngFor="let card of cards" [style.background]="card.background" (click)="navToDetails(card)">
       <ion-row>
         <ion-col class="logo">
           <img [src]="card.logoFullPath" />

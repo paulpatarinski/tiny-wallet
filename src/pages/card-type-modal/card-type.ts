@@ -34,7 +34,12 @@ export class CardTypeModal {
     }
 
     cardSelected(selectedCard: Card) {
-        this.navCtrl.push(ScanPage, selectedCard).then(() => {
+        var params = {
+            autoLaunchScan: true,
+            selectedCard: selectedCard
+        };
+
+        this.navCtrl.push(ScanPage, params).then(() => {
             this.viewCtrl.dismiss();
         });
     }

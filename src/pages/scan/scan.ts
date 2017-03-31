@@ -11,9 +11,11 @@ export class ScanPage {
     card: Card;
     cardNumber: string;
     barcodeOptions = null;
+    private autoLaunchScan: Boolean;
 
     constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService) {
-        this.card = params.data;
+        this.card = params.data.selectedCard;
+        this.autoLaunchScan = params.data.autoLaunchScan;
 
         if (this.card && this.card.barcode && this.card.barcode.number) {
             this.cardNumber = this.card.barcode.number;
@@ -21,7 +23,9 @@ export class ScanPage {
     }
 
     ionViewWillEnter() {
-        this.scanBarcode();
+        if (this.autoLaunchScan) {
+            this.scanBarcode();
+        }
     }
 
     scanBarcode() {
