@@ -62,7 +62,11 @@ platform :ios do
     )
     crashlytics(
       api_token: "0de21186b656d5ebed3e4d24fb2a8807806c9bf2",
-      build_secret: "30126e94122959fdedb21bfbd84cdd48735a9357076a9a091986a9174880cc8e"
+      build_secret: "30126e94122959fdedb21bfbd84cdd48735a9357076a9a091986a9174880cc8e",
+      groups: ["simple-prod-testers"]
+    )
+    slack(
+      slack_url: "https://hooks.slack.com/services/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"
     )
   end
 end
