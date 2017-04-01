@@ -35,6 +35,39 @@ platform :android do
 end
 
 platform :ios do
+  desc "Compile a new build for for ad-hoc"
+  lane :releaseAdhoc do
+    app_name_sanitized = 'Tiny Wallet'
+    ios_project_path = "platforms/ios/#{app_name_sanitized}.xcodeproj"
+    app_identifier = "com.simpleproductionsinc.tinywallet"
+
+    # Compile the ionic app
+    sh("npm run build:prod && ionic build ios --release")
+    # Get certificate
+    cert
+    # Get provisioning profile
+    sigh(
+      force: false
+    )
+    # Recreate schemes to ensure a smooth transition from cordova to gym
+    recreate_schemes(
+      project: ios_project_path
+    )
+    # Archive app into ipa
+    gym(
+      scheme: app_name_sanitized,
+      project: ios_project_path,
+      export_method: 'ad-hoc',
+      output_directory: './apps'
+    )
+    crashlytics(
+      api_token: "0de21186b656d5ebed3e4d24fb2a8807806c9bf2",
+      build_secret: "30126e94122959fdedb21bfbd84cdd48735a9357076a9a091986a9174880cc8e"
+    )
+  end
+end
+
+platform :ios do
   desc "Compile a new build for for appstore"
   lane :release do
     app_name_sanitized = 'Tiny Wallet'
@@ -61,4 +94,4 @@ platform :ios do
       output_directory: './apps'
     )
   end
-  end
+end
