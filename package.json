@@ -19,6 +19,8 @@
     "install:apk": "adb install apps/tinywallet.apk",
     "prepublish:android": "rimraf apps/*.apk rimraf apps/*.ipa",
     "publish:android": "fastlane android release",
+    "prepublish:ios:adhoc": "rimraf apps/*.ipa",
+    "publish:ios:adhoc": "fastlane ios releaseAdhoc",
     "prepublish:ios": "rimraf apps/*.ipa",
     "publish:ios": "fastlane ios release",
     "uitests:init": "cd ui_tests && npm install && npm run restore && npm run build",
