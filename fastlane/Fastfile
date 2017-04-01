@@ -33,3 +33,32 @@ platform :android do
     )
   end
 end
+
+platform :ios do
+  desc "Compile a new build for for appstore"
+  lane :release do
+    app_name_sanitized = 'Tiny Wallet'
+    ios_project_path = "platforms/ios/#{app_name_sanitized}.xcodeproj"
+    app_identifier = "com.simpleproductionsinc.tinywallet"
+
+    # Compile the ionic app
+    sh("npm run build:prod && ionic build ios --release")
+    # Get certificate
+    cert
+    # Get provisioning profile
+    sigh(
+      force: false
+    )
+    # Recreate schemes to ensure a smooth transition from cordova to gym
+    recreate_schemes(
+      project: ios_project_path
+    )
+    # Archive app into ipa
+    gym(
+      scheme: app_name_sanitized,
+      project: ios_project_path,
+      export_method: 'app-store',
+      output_directory: './apps'
+    )
+  end
+  end

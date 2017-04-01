@@ -1,2 +1,7 @@
 json_key_file "/Users/paulpatarinski/Desktop/my_certs/Google\ Play\ Android\ Developer-50696ac01ff2.json" # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
 package_name "com.simpleproductionsinc.tinywallet" # e.g. com.krausefx.app
+
+app_identifier "com.simpleproductionsinc.tinywallet" # The bundle identifier of your app
+apple_id "paulpatarinski@gmail.com" # Your Apple email address
+
+team_id "GR2GWFC7Z8"  # Developer Portal Team ID
