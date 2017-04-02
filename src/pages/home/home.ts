@@ -3,7 +3,7 @@ import { ModalController, NavController } from 'ionic-angular';
 import { CardTypeModal } from "../card-type-modal/card-type";
 import { Card } from "../../models/card";
 import { CardService } from "../../services/card.service";
-import { ScanPage } from "../scan/scan";
+import { EditPage } from "../edit/edit";
 
 @Component({
   selector: 'page-home',
@@ -33,7 +33,7 @@ export class HomePage {
       selectedCard: selectedCard
     };
 
-    this.navCtrl.push(ScanPage, params);
+    this.navCtrl.push(EditPage, params);
   }
 
   ionViewWillEnter() {

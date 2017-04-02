@@ -1,6 +1,6 @@
 import { Platform, NavParams, ViewController, NavController } from "ionic-angular";
 import { Component } from "@angular/core";
-import { ScanPage } from "../scan/scan";
+import { AddPage } from "../add/add";
 import { CardService } from "../../services/card.service";
 import { Card } from "../../models/card";
 
@@ -39,7 +39,7 @@ export class CardTypeModal {
             selectedCard: selectedCard
         };
 
-        this.navCtrl.push(ScanPage, params).then(() => {
+        this.navCtrl.push(AddPage, params).then(() => {
             this.viewCtrl.dismiss();
         });
     }

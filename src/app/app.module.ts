@@ -2,10 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-
 import { RavenErrorHandler } from "../components/raven-error-handler";
 import * as Raven from 'raven-js';
-import { ScanPage } from "../pages/scan/scan";
+import { AddPage } from "../pages/add/add";
 import { CardTypeModal } from "../pages/card-type-modal/card-type";
 import { BarcodeScannerService } from "../services/barcode.scanner.service";
 import { BarcodeFormatMapper } from "../services/barcode.format.mapper";
@@ -16,6 +15,7 @@ import { BarcodeScannerMock } from "../mocks/barcode.scanner.mock";
 import { CardService } from "../services/card.service";
 import { IonicStorageModule } from '@ionic/storage';
 import { BarcodeComponent } from "../components/barcode/barcode";
+import { EditPage } from "../pages/edit/edit";
 
 Raven
   .config('https://193b0d50ae2a487982840688079da3c6@sentry.io/152054')
@@ -26,7 +26,8 @@ Raven
   declarations: [
     MyApp,
     HomePage,
-    ScanPage,
+    AddPage,
+    EditPage,
     CardTypeModal,
     BarcodeComponent
   ],
@@ -48,7 +49,8 @@ Raven
   entryComponents: [
     MyApp,
     HomePage,
-    ScanPage,
+    AddPage,
+    EditPage,
     CardTypeModal,
     BarcodeComponent
   ],

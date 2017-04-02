@@ -4,10 +4,10 @@ import { BarcodeScannerService } from "../../services/barcode.scanner.service";
 import { Card } from "../../models/card";
 
 @Component({
-    selector: 'page-scan',
-    templateUrl: 'scan.html'
+    selector: 'page-add',
+    templateUrl: 'add.html'
 })
-export class ScanPage {
+export class AddPage {
     card: Card;
     cardNumber: string;
     barcodeOptions = null;
