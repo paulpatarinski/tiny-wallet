@@ -2,8 +2,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { RavenErrorHandler } from "../components/raven-error-handler";
-import * as Raven from 'raven-js';
 import { AddPage } from "../pages/add/add";
 import { CardTypeModal } from "../pages/card-type-modal/card-type";
 import { BarcodeScannerService } from "../services/barcode.scanner.service";
@@ -16,11 +14,6 @@ import { CardService } from "../services/card.service";
 import { IonicStorageModule } from '@ionic/storage';
 import { BarcodeComponent } from "../components/barcode/barcode";
 import { EditPage } from "../pages/edit/edit";
-
-Raven
-  .config('https://193b0d50ae2a487982840688079da3c6@sentry.io/152054')
-  .install();
-
 
 @NgModule({
   declarations: [
@@ -54,7 +47,7 @@ Raven
     CardTypeModal,
     BarcodeComponent
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, BarcodeScanner, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, RavenErrorHandler]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, BarcodeScanner, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper]
 })
 
 export class AppModule { }
