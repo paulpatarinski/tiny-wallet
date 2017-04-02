@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BarcodeScannerService } from "../../services/barcode.scanner.service";
 import { Card } from "../../models/card";
+import { BarcodeSize } from "../../models/barcode.size";
 
 @Component({
     selector: 'page-add',
@@ -10,6 +11,7 @@ import { Card } from "../../models/card";
 export class AddPage {
     card: Card;
     cardNumber: string;
+    size: BarcodeSize = BarcodeSize.Large;
     barcodeOptions = null;
     private autoLaunchScan: Boolean;
 

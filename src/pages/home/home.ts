@@ -4,6 +4,7 @@ import { CardTypeModal } from "../card-type-modal/card-type";
 import { Card } from "../../models/card";
 import { CardService } from "../../services/card.service";
 import { EditPage } from "../edit/edit";
+import { BarcodeSize } from "../../models/barcode.size";
 
 @Component({
   selector: 'page-home',
@@ -11,6 +12,7 @@ import { EditPage } from "../edit/edit";
 })
 export class HomePage {
   cards: Array<Card>;
+  size: BarcodeSize = BarcodeSize.Medium;
 
   constructor(public modalCtrl: ModalController, public navCtrl: NavController, public cardService: CardService) {
   }

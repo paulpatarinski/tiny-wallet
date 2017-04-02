@@ -4,8 +4,6 @@ export class Barcode {
         this.format = format;
         this.options = {
             format: this.format,
-            height: 130,
-            width: 5,
             flat: true
         };
     }

@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, Input } from "@angular/core";
 import JsBarcode from 'jsbarcode';
+import { BarcodeSize } from "../../models/barcode.size";
 
 @Component({
     selector: 'barcode',
@@ -8,7 +9,8 @@ import JsBarcode from 'jsbarcode';
 
 export class BarcodeComponent {
     @ViewChild('barcode') barcode: ElementRef;
-    @Input() barcodeNumber;
+    @Input() barcodeNumber: string;
+    @Input() size: BarcodeSize;
     @Input() options;
     validCardNumber: Boolean;
 
@@ -17,6 +19,29 @@ export class BarcodeComponent {
             if (!this.barcodeNumber || !this.options) {
                 this.validCardNumber = false;
                 return;
+            }
+
+            switch (this.size) {
+                case BarcodeSize.Large:
+                    {
+                        this.options.height = 200;
+                        this.options.width = 4;
+                        break;
+                    }
+
+                case BarcodeSize.Medium:
+                    {
+                        this.options.height = 130;
+                        this.options.width = 5;
+                        break;
+                    }
+
+                default:
+                    {
+                        this.options.height = 130;
+                        this.options.width = 5;
+                        break;
+                    }
             }
 
             JsBarcode(this.barcode.nativeElement, this.barcodeNumber, this.options);

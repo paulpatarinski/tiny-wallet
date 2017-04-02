@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BarcodeFormatMapper } from "./barcode.format.mapper";
 import { Platform, LoadingController } from "ionic-angular";
+import { Card } from "../models/card";
 
 @Injectable()
 export class BarcodeScannerService {
@@ -50,9 +51,7 @@ export class BarcodeScannerService {
             text: text,
             options: {
                 format: generatorFormat,
-                flat: this.isFlatBarcode(generatorFormat),
-                height: 200,
-                width: 4
+                flat: this.isFlatBarcode(generatorFormat)
             }
         };
     }
@@ -65,7 +64,7 @@ export class BarcodeScannerService {
         return text;
     }
 
-    isFlatBarcode(format) {
+    private isFlatBarcode(format) {
         return format === "UPC";
     }
 }  
