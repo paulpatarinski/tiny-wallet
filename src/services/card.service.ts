@@ -2,12 +2,13 @@ import { Injectable } from "@angular/core";
 import { Card } from "../models/card";
 import { Storage } from '@ionic/storage';
 import { Barcode } from "../models/barcode";
+import { LoadingController } from "ionic-angular";
 
 @Injectable()
 export class CardService {
     private _storage: Storage;
 
-    constructor(public strg: Storage) {
+    constructor(public strg: Storage, public loadingCtrl: LoadingController) {
         this._storage = strg;
     }
 
@@ -15,7 +16,7 @@ export class CardService {
         var defaultCards: Array<Card> = new Array<Card>();
 
         defaultCards.push(new Card(
-            new Barcode("123554355324", "UPC"),
+            new Barcode("123554355324", { format: "UPC", flat: true }),
             "Target",
             "#cc0005",
             "target",
@@ -23,7 +24,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            new Barcode("123554355324", "UPC"),
+            new Barcode("123554355324", { format: "UPC", flat: true }),
             "Canon",
             "#FFFFFF",
             "canon",
@@ -31,7 +32,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            new Barcode("123554355324", "UPC"),
+            new Barcode("123554355324", { format: "UPC", flat: true }),
             "Citi",
             "#CCCCCC",
             "citi",
@@ -39,7 +40,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            new Barcode("123554355324", "UPC"),
+            new Barcode("123554355324", { format: "UPC", flat: true }),
             "Costco",
             "#303030",
             "costco",
@@ -47,7 +48,7 @@ export class CardService {
         ));
 
         defaultCards.push(new Card(
-            new Barcode("123554355324", "UPC"),
+            new Barcode("123554355324", { format: "UPC", flat: true }),
             "Adidas",
             "#cc0005",
             "adidas",
@@ -112,6 +113,14 @@ export class CardService {
         });
     }
 
+    private saveAllCards(cards: Array<Card>): Promise<Array<Card>> {
+        return this._storage.ready().then(() => {
+            return this._storage.set('cards', JSON.stringify(cards));
+        }).then((result) => {
+            return cards;
+        });
+    }
+
     private filterActivated(allCards: Array<Card>): Array<Card> {
         return allCards.filter(c => c.activated);
     }
@@ -126,5 +135,32 @@ export class CardService {
 
     getNonActivatedCards(): Promise<Array<Card>> {
         return this.getAllCards().then(this.filterNonActivated);
+    }
+
+    update(selectedCardId: string, newBarcode: Barcode): Promise<Card> {
+        let loading = this.loadingCtrl.create({
+            content: 'Saving...'
+        });
+
+        loading.present();
+
+        return this.getAllCards().then((cards) => {
+            var selectedCard = cards.find(c => c.id === selectedCardId);
+
+            if (!selectedCard)
+                return selectedCard;
+
+            selectedCard.barcode = newBarcode;
+
+            return this.saveAllCards(cards).then(() => {
+                return selectedCard;
+            }).then((card) => {
+                loading.dismiss();
+                return card;
+            }).catch((err) => {
+                console.log('Error Saving' + err);
+                loading.dismiss();
+            });
+        });
     }
 }  
