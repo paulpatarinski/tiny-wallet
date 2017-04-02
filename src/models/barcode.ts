@@ -1,14 +1,9 @@
 export class Barcode {
-    constructor(number: string, format: string) {
+    constructor(number: string, options) {
         this.number = number;
-        this.format = format;
-        this.options = {
-            format: this.format,
-            flat: true
-        };
+        this.options = options;
     }
 
     number: string;
-    format: string;
     options: any;
 }  
