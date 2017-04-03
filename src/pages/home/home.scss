@@ -1,5 +1,9 @@
 #wallet {
     page-home {
+        .toolbar-background-ios {
+         border : none;
+        }
+        
         ion-content {
             background: $dark;
         }
