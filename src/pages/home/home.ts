@@ -39,6 +39,11 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
+    console.log("Will Enter")
     return this.loadActivatedCards();
+  }
+
+  ionViewDidEnter() {
+    console.log("Did Enter")
   }
 }

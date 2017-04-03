@@ -14,8 +14,8 @@ import { BarcodeDataService } from "../../components/barcode/barcode.data.servic
 export class EditPage {
     card: Card;
     cardNumber: string;
-    barcodeOptions;
     size: BarcodeSize = BarcodeSize.Large;
+    barcodeOptions = null;
 
     constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService, public cardService: CardService, public dataService: BarcodeDataService) {
         this.card = params.data.selectedCard;
@@ -33,10 +33,6 @@ export class EditPage {
                 this.barcodeOptions = barcodeData.options;
             })
             .catch(err => console.log);
-    }
-
-    cardNumberChanged(newCardNumber) {
-        this.cardNumber = newCardNumber;
     }
 
     save(existingCard: Card, newCardNumber: string, newBarcodeOptions) {

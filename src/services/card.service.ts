@@ -16,46 +16,6 @@ export class CardService {
         var defaultCards: Array<Card> = new Array<Card>();
 
         defaultCards.push(new Card(
-            new Barcode("123554355324", { format: "UPC", flat: true }),
-            "Target",
-            "#cc0005",
-            "target",
-            true
-        ));
-
-        defaultCards.push(new Card(
-            new Barcode("123554355324", { format: "UPC", flat: true }),
-            "Canon",
-            "#FFFFFF",
-            "canon",
-            true
-        ));
-
-        defaultCards.push(new Card(
-            new Barcode("123554355324", { format: "UPC", flat: true }),
-            "Citi",
-            "#CCCCCC",
-            "citi",
-            true
-        ));
-
-        defaultCards.push(new Card(
-            new Barcode("123554355324", { format: "UPC", flat: true }),
-            "Costco",
-            "#303030",
-            "costco",
-            true
-        ));
-
-        defaultCards.push(new Card(
-            new Barcode("123554355324", { format: "UPC", flat: true }),
-            "Adidas",
-            "#cc0005",
-            "adidas",
-            true
-        ));
-
-        defaultCards.push(new Card(
             null,
             "Target",
             "#cc0005",
@@ -151,6 +111,10 @@ export class CardService {
                 return selectedCard;
 
             selectedCard.barcode = newBarcode;
+
+            if (!selectedCard.activated) {
+                selectedCard.activated = true;
+            }
 
             return this.saveAllCards(cards).then(() => {
                 return selectedCard;

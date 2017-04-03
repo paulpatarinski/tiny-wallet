@@ -14,19 +14,25 @@ export class BarcodeComponent {
     @Input() size: BarcodeSize;
     @Input() options;
     validCardNumber: boolean = false;
-    /**
-     *
-     */
+    private defaultBarcodeOptions = {
+        format: "UPC",
+        flat: true
+    };
+
     constructor(public dataService: BarcodeDataService) {
 
     }
 
     ngOnChanges(changes: any) {
         try {
-            if (!this.barcodeNumber || !this.options) {
+            if (!this.barcodeNumber) {
                 this.dataService.validCardNumber = false;
                 this.validCardNumber = false;
                 return;
+            }
+
+            if (!this.options) {
+                this.options = this.defaultBarcodeOptions;
             }
 
             switch (this.size) {
