@@ -1,4 +1,4 @@
-import { Platform, NavParams, ViewController, NavController, App } from "ionic-angular";
+import { Platform, NavParams, ViewController, App } from "ionic-angular";
 import { Component } from "@angular/core";
 import { AddPage } from "../add/add";
 import { CardService } from "../../services/card.service";
@@ -23,7 +23,7 @@ export class CardTypeModal {
     }
 
     private loadNonActivatedCards() {
-        this.cardService.getNonActivatedCards().then((cards) => {
+        return this.cardService.getNonActivatedCards().then((cards) => {
             this.cards = cards;
             console.log(JSON.stringify(cards));
         });
@@ -39,12 +39,12 @@ export class CardTypeModal {
             selectedCard: selectedCard
         };
 
-        this.appCtrl.getRootNav().push(AddPage, params).then(() => {
-            this.viewCtrl.dismiss();
+        return this.appCtrl.getRootNav().push(AddPage, params).then(() => {
+            return this.viewCtrl.dismiss();
         });
     }
 
     dismiss() {
-        this.viewCtrl.dismiss();
+        return this.viewCtrl.dismiss();
     }
 }

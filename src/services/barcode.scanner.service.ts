@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BarcodeFormatMapper } from "./barcode.format.mapper";
 import { Platform, LoadingController } from "ionic-angular";
-import { Card } from "../models/card";
 
 @Injectable()
 export class BarcodeScannerService {
