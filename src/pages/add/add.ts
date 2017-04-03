@@ -54,6 +54,6 @@ export class AddPage {
     }
 
     cancel() {
-        this.navCtrl.pop();
+        return this.navCtrl.pop();
     }
 }

@@ -38,14 +38,20 @@ export class EditPage {
     save(existingCard: Card, newCardNumber: string, newBarcodeOptions) {
         var newBarcode = new Barcode(newCardNumber, newBarcodeOptions);
 
-        this.cardService.update(existingCard.id, newBarcode).then((updatedCard) => {
+        return this.cardService.update(existingCard.id, newBarcode).then((updatedCard) => {
             this.card = updatedCard;
         }).then(() => {
             this.navCtrl.pop();
         });
     }
 
+    delete(existingCard: Card) {
+        return this.cardService.delete(existingCard.id).then(() => {
+            this.navCtrl.pop();
+        });
+    }
+
     cancel() {
-        this.navCtrl.pop();
+        return this.navCtrl.pop();
     }
 }

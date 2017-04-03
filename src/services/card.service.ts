@@ -127,4 +127,32 @@ export class CardService {
             });
         });
     }
+
+    delete(cardId: string): Promise<Card> {
+        let loading = this.loadingCtrl.create({
+            content: 'Deleting...'
+        });
+
+        loading.present();
+
+        return this.getAllCards().then((cards) => {
+            var cardToDelete = cards.find(c => c.id === cardId);
+
+            if (!cardToDelete)
+                return cardToDelete;
+
+            cardToDelete.barcode = null;
+            cardToDelete.activated = false;
+
+            return this.saveAllCards(cards).then(() => {
+                return cardToDelete;
+            }).then((card) => {
+                loading.dismiss();
+                return card;
+            }).catch((err) => {
+                console.log('Error Deleting Card' + err);
+                loading.dismiss();
+            });
+        });
+    }
 }  

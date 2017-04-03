@@ -27,6 +27,16 @@
     padding : 0;
 }
 
+.bar-buttons {
+    :first-child {
+        margin-right : 10px; 
+    }
+
+    :only-child {
+        margin-right: 0px;
+    }
+}
+
 $gray : #666;
 $gray-300 : #CCC;
 $dark : #222;

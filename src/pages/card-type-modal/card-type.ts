@@ -1,4 +1,4 @@
-import { Platform, NavParams, ViewController, NavController } from "ionic-angular";
+import { Platform, NavParams, ViewController, NavController, App } from "ionic-angular";
 import { Component } from "@angular/core";
 import { AddPage } from "../add/add";
 import { CardService } from "../../services/card.service";
@@ -16,7 +16,7 @@ export class CardTypeModal {
         public platform: Platform,
         public params: NavParams,
         public viewCtrl: ViewController,
-        public navCtrl: NavController,
+        public appCtrl: App,
         public cardService: CardService
     ) {
 
@@ -39,7 +39,7 @@ export class CardTypeModal {
             selectedCard: selectedCard
         };
 
-        this.navCtrl.push(AddPage, params).then(() => {
+        this.appCtrl.getRootNav().push(AddPage, params).then(() => {
             this.viewCtrl.dismiss();
         });
     }
