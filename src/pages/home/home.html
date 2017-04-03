@@ -10,7 +10,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen (ionScroll)="onScroll($event)">
 
   <img src="assets/logo.svg" class="large-app-logo" [hidden]="showCards">
 

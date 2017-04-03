@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import { ModalController, NavController, ScrollEvent } from 'ionic-angular';
 import { CardTypeModal } from "../card-type-modal/card-type";
 import { Card } from "../../models/card";
 import { CardService } from "../../services/card.service";
@@ -21,6 +21,14 @@ export class HomePage {
   navToScan() {
     let selectCardTypeModal = this.modalCtrl.create(CardTypeModal);
     selectCardTypeModal.present();
+  }
+
+  onScroll(ev: ScrollEvent) {
+    ev.domWrite(() => {
+      // DOM writes must go within domWrite()
+      // to prevent any layout thrashing
+      ev.headerElement.style.transform = `translateY(${-ev.scrollTop}px)`;
+    });
   }
 
   private loadActivatedCards() {
