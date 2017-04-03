@@ -9,7 +9,6 @@ import { BarcodeFormatMapper } from "../services/barcode.format.mapper";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
-import { BarcodeScannerMock } from "../mocks/barcode.scanner.mock";
 import { CardService } from "../services/card.service";
 import { IonicStorageModule } from '@ionic/storage';
 import { BarcodeComponent } from "../components/barcode/barcode";
