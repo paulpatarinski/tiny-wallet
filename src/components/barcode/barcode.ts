@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, Input } from "@angular/core";
 import JsBarcode from 'jsbarcode';
 import { BarcodeSize } from "../../models/barcode.size";
+import { BarcodeDataService } from "./barcode.data.service";
 
 @Component({
     selector: 'barcode',
@@ -12,11 +13,18 @@ export class BarcodeComponent {
     @Input() barcodeNumber: string;
     @Input() size: BarcodeSize;
     @Input() options;
-    validCardNumber: Boolean;
+    validCardNumber: boolean = false;
+    /**
+     *
+     */
+    constructor(public dataService: BarcodeDataService) {
+
+    }
 
     ngOnChanges(changes: any) {
         try {
             if (!this.barcodeNumber || !this.options) {
+                this.dataService.validCardNumber = false;
                 this.validCardNumber = false;
                 return;
             }
@@ -45,10 +53,12 @@ export class BarcodeComponent {
             }
 
             JsBarcode(this.barcode.nativeElement, this.barcodeNumber, this.options);
+            this.dataService.validCardNumber = true;
             this.validCardNumber = true;
         }
         catch (err) {
             console.log(err);
+            this.dataService.validCardNumber = false;
             this.validCardNumber = false;
         }
     }

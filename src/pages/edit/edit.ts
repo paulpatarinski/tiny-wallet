@@ -5,6 +5,7 @@ import { Card } from "../../models/card";
 import { CardService } from "../../services/card.service";
 import { Barcode } from "../../models/barcode";
 import { BarcodeSize } from "../../models/barcode.size";
+import { BarcodeDataService } from "../../components/barcode/barcode.data.service";
 
 @Component({
     selector: 'page-edit',
@@ -16,7 +17,7 @@ export class EditPage {
     barcodeOptions;
     size: BarcodeSize = BarcodeSize.Large;
 
-    constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService, public cardService: CardService) {
+    constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService, public cardService: CardService, public dataService: BarcodeDataService) {
         this.card = params.data.selectedCard;
 
         if (this.card && this.card.barcode && this.card.barcode.number) {

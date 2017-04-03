@@ -14,6 +14,7 @@ import { CardService } from "../services/card.service";
 import { IonicStorageModule } from '@ionic/storage';
 import { BarcodeComponent } from "../components/barcode/barcode";
 import { EditPage } from "../pages/edit/edit";
+import { BarcodeDataService } from "../components/barcode/barcode.data.service";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { EditPage } from "../pages/edit/edit";
     CardTypeModal,
     BarcodeComponent
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, BarcodeScanner, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, BarcodeScanner, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, BarcodeDataService]
 })
 
 export class AppModule { }
