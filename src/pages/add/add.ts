@@ -14,6 +14,7 @@ import { BarcodeDataService } from "../../components/barcode/barcode.data.servic
 export class AddPage {
     card: Card;
     cardNumber: string;
+    comment: string;
     size: BarcodeSize = BarcodeSize.Large;
     barcodeOptions = null;
     private autoLaunchScan: Boolean;
@@ -24,6 +25,7 @@ export class AddPage {
 
         if (this.card && this.card.barcode && this.card.barcode.number) {
             this.cardNumber = this.card.barcode.number;
+            this.comment = this.card.comment;
             this.barcodeOptions = this.card.barcode.options;;
         }
     }
@@ -43,10 +45,10 @@ export class AddPage {
             .catch(err => console.log);
     }
 
-    save(existingCard: Card, newCardNumber: string, newBarcodeOptions) {
+    save(existingCard: Card, newCardNumber: string, comment: string, newBarcodeOptions) {
         var newBarcode = new Barcode(newCardNumber, newBarcodeOptions);
 
-        this.cardService.update(existingCard.id, newBarcode).then((updatedCard) => {
+        this.cardService.update(existingCard.id, comment, newBarcode).then((updatedCard) => {
             this.card = updatedCard;
         }).then(() => {
             this.navCtrl.pop();

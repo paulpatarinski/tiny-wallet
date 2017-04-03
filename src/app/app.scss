@@ -15,25 +15,27 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-.icon-xlarge {
-    font-size : 80px;
-}
-
-.row {
-    flex : 1;
-}
-
-.col {
-    padding : 0;
-}
-
-.bar-buttons {
-    :first-child {
-        margin-right : 10px; 
+#wallet {
+    .icon-xlarge {
+        font-size : 80px;
     }
 
-    :only-child {
-        margin-right: 0px;
+    .row {
+        flex : 1;
+    }
+
+    .col {
+        padding : 0; 
+    }
+
+    .bar-buttons {
+        :first-child {
+            margin-right : 10px; 
+        }
+
+        :only-child {
+            margin-right: 0px;
+        }
     }
 }
 

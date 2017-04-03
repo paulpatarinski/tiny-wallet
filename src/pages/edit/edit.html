@@ -11,7 +11,7 @@
             <button ion-button (click)="delete(card)">
                 Delete
             </button>
-            <button ion-button (click)="save(card, cardNumber, barcodeOptions)" [disabled]="!dataService.validCardNumber">
+            <button ion-button (click)="save(card, cardNumber, comment, barcodeOptions)" [disabled]="!dataService.validCardNumber">
                 Save
             </button>
         </ion-buttons>
@@ -43,6 +43,17 @@
 
             <ion-col col-1 align-self-end no-padding (click)="scanBarcode()">
                 <img class="barcode-icon" src="assets/scan_barcode.svg" />
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item class="comment-field">
+                    <ion-label stacked>Comment</ion-label>
+                    <ion-textarea fz-elastic [(ngModel)]="comment"></ion-textarea>
+                </ion-item>
             </ion-col>
         </ion-row>
     </ion-grid>

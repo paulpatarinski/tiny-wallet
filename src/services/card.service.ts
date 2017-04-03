@@ -18,6 +18,7 @@ export class CardService {
         defaultCards.push(new Card(
             null,
             "Target",
+            "",
             "#cc0005",
             "target",
             false
@@ -26,6 +27,7 @@ export class CardService {
         defaultCards.push(new Card(
             null,
             "Canon",
+            "",
             "#FFFFFF",
             "canon",
             false
@@ -34,6 +36,7 @@ export class CardService {
         defaultCards.push(new Card(
             null,
             "Citi",
+            "",
             "#CCCCCC",
             "citi",
             false
@@ -42,6 +45,7 @@ export class CardService {
         defaultCards.push(new Card(
             null,
             "Costco",
+            "",
             "#303030",
             "costco",
             false
@@ -51,6 +55,7 @@ export class CardService {
         defaultCards.push(new Card(
             null,
             "Adidas",
+            "",
             "#cc0005",
             "adidas",
             false
@@ -97,7 +102,7 @@ export class CardService {
         return this.getAllCards().then(this.filterNonActivated);
     }
 
-    update(selectedCardId: string, newBarcode: Barcode): Promise<Card> {
+    update(selectedCardId: string, comment: string, newBarcode: Barcode): Promise<Card> {
         let loading = this.loadingCtrl.create({
             content: 'Saving...'
         });
@@ -111,6 +116,7 @@ export class CardService {
                 return selectedCard;
 
             selectedCard.barcode = newBarcode;
+            selectedCard.comment = comment;
 
             if (!selectedCard.activated) {
                 selectedCard.activated = true;
