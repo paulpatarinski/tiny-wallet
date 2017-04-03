@@ -5,6 +5,7 @@ import { Card } from "../../models/card";
 import { CardService } from "../../services/card.service";
 import { EditPage } from "../edit/edit";
 import { BarcodeSize } from "../../models/barcode.size";
+import { StatusBar } from "@ionic-native/status-bar";
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ export class HomePage {
   showCards: boolean = false;
   size: BarcodeSize = BarcodeSize.Medium;
 
-  constructor(public modalCtrl: ModalController, public navCtrl: NavController, public cardService: CardService) {
+  constructor(public modalCtrl: ModalController, public navCtrl: NavController, public cardService: CardService, public statusBar: StatusBar) {
   }
 
   navToScan() {
@@ -49,7 +50,7 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    console.log("Will Enter")
+    this.statusBar.styleBlackTranslucent();
     return this.loadActivatedCards();
   }
 }

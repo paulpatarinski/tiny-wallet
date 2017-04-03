@@ -3,6 +3,7 @@ import { Component } from "@angular/core";
 import { AddPage } from "../add/add";
 import { CardService } from "../../services/card.service";
 import { Card } from "../../models/card";
+import { StatusBar } from "@ionic-native/status-bar";
 
 @Component({
     selector: 'cart-type-modal',
@@ -17,7 +18,8 @@ export class CardTypeModal {
         public params: NavParams,
         public viewCtrl: ViewController,
         public appCtrl: App,
-        public cardService: CardService
+        public cardService: CardService,
+        public statusBar: StatusBar
     ) {
 
     }
@@ -30,6 +32,8 @@ export class CardTypeModal {
     }
 
     ionViewWillEnter() {
+        this.statusBar.styleDefault();
+
         return this.loadNonActivatedCards();
     }
 

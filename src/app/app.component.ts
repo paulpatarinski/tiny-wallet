@@ -24,11 +24,11 @@ export class MyApp {
 
       var statusBarOverlayWebView = platform.is('ios');
 
-      statusBar.overlaysWebView(statusBarOverlayWebView)
+      statusBar.overlaysWebView(true);
 
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleLightContent();
+      statusBar.styleBlackTranslucent();
       splashScreen.hide();
     });
   }

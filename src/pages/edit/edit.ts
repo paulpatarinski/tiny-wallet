@@ -6,6 +6,7 @@ import { CardService } from "../../services/card.service";
 import { Barcode } from "../../models/barcode";
 import { BarcodeSize } from "../../models/barcode.size";
 import { BarcodeDataService } from "../../components/barcode/barcode.data.service";
+import { StatusBar } from "@ionic-native/status-bar";
 
 @Component({
     selector: 'page-edit',
@@ -18,7 +19,7 @@ export class EditPage {
     size: BarcodeSize = BarcodeSize.Large;
     barcodeOptions = null;
 
-    constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService, public cardService: CardService, public dataService: BarcodeDataService) {
+    constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService, public cardService: CardService, public dataService: BarcodeDataService, public statusBar: StatusBar) {
         this.card = params.data.selectedCard;
 
         if (this.card && this.card.barcode && this.card.barcode.number) {
@@ -26,6 +27,10 @@ export class EditPage {
             this.comment = this.card.comment;
             this.barcodeOptions = this.card.barcode.options;
         }
+    }
+
+    ionViewWillEnter() {
+        this.statusBar.styleDefault();
     }
 
     scanBarcode() {
