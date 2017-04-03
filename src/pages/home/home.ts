@@ -12,6 +12,7 @@ import { BarcodeSize } from "../../models/barcode.size";
 })
 export class HomePage {
   cards: Array<Card>;
+  showCards: boolean = false;
   size: BarcodeSize = BarcodeSize.Medium;
 
   constructor(public modalCtrl: ModalController, public navCtrl: NavController, public cardService: CardService) {
@@ -25,6 +26,7 @@ export class HomePage {
   private loadActivatedCards() {
     this.cardService.getActivatedCards().then((cards) => {
       this.cards = cards;
+      this.showCards = cards.length > 0;
       console.log(JSON.stringify(cards));
     });
   }

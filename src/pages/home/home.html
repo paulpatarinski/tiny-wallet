@@ -12,7 +12,9 @@
 
 <ion-content>
 
-  <ion-list>
+  <img src="assets/logo.svg" class="large-app-logo" [hidden]="showCards">
+
+  <ion-list [hidden]="!showCards">
     <ion-grid class="card" *ngFor="let card of cards" [style.background]="card.background" (click)="navToDetails(card)">
       <ion-row>
         <ion-col class="logo">
