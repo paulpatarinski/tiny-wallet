@@ -24,7 +24,7 @@ export class MyApp {
 
       var statusBarOverlayWebView = platform.is('ios');
 
-      statusBar.overlaysWebView(true);
+      statusBar.overlaysWebView(statusBarOverlayWebView);
 
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
