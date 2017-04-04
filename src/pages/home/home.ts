@@ -24,14 +24,6 @@ export class HomePage {
     selectCardTypeModal.present();
   }
 
-  onScroll(ev: ScrollEvent) {
-    ev.domWrite(() => {
-      // DOM writes must go within domWrite()
-      // to prevent any layout thrashing
-      ev.headerElement.style.transform = `translateY(${-ev.scrollTop}px)`;
-    });
-  }
-
   private loadActivatedCards() {
     this.cardService.getActivatedCards().then((cards) => {
       this.cards = cards;
