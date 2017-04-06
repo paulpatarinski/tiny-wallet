@@ -8,7 +8,6 @@ export class Card {
         this.name = name;
         this.comment = comment;
         this.background = background;
-        this.logoFileName = logoFileName;
         this.logoFullPath = "assets/card-logos/" + logoFileName + ".svg";
         this.activated = activated;
     }
@@ -18,7 +17,6 @@ export class Card {
     name: string;
     comment: string;
     background: string;
-    logoFileName: string;
     logoFullPath: string;
     activated: Boolean;
 }  

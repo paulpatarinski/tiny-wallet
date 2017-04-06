@@ -3,71 +3,50 @@ import { Card } from "../models/card";
 import { Storage } from '@ionic/storage';
 import { Barcode } from "../models/barcode";
 import { LoadingController } from "ionic-angular";
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import { CardDTO } from "../models/card.dto";
 
 @Injectable()
 export class CardService {
     private _storage: Storage;
 
-    constructor(public strg: Storage, public loadingCtrl: LoadingController) {
+    constructor(public strg: Storage, public loadingCtrl: LoadingController, public http: Http) {
         this._storage = strg;
     }
 
-    private populateDefaultCardsIfNull(existingCards) {
-        var defaultCards: Array<Card> = new Array<Card>();
+    private populateDefaultCardsIfNull(existingCards): Promise<Array<Card>> {
 
-        defaultCards.push(new Card(
-            null,
-            "Target",
-            "",
-            "#cc0005",
-            "target",
-            false
-        ));
+        return new Promise((resolve, reject) => {
+            if (!existingCards) {
+                return this.parseDefaultCardsFromJson()
+                    .then((dtos) => {
+                        return this.mapDTOs(dtos);
+                    })
+                    .then((cards) => {
+                        return this.saveCards(cards);
+                    });
+            }
 
-        defaultCards.push(new Card(
-            null,
-            "Canon",
-            "",
-            "#FFFFFF",
-            "canon",
-            false
-        ));
+            resolve(JSON.parse(existingCards));
+        });
+    }
 
-        defaultCards.push(new Card(
-            null,
-            "Citi",
-            "",
-            "#CCCCCC",
-            "citi",
-            false
-        ));
+    private saveCards(cards: Array<Card>) {
+        return this._storage.set('cards', JSON.stringify(cards)).then(() => {
+            return cards;
+        });
+    }
 
-        defaultCards.push(new Card(
-            null,
-            "Costco",
-            "",
-            "#303030",
-            "costco",
-            false
-        ));
+    private mapDTOs(cardDTOs: Array<CardDTO>): Array<Card> {
+        return cardDTOs.map((dto) => {
+            return this.mapDTO(dto);
+        });
+    }
 
-
-        defaultCards.push(new Card(
-            null,
-            "Adidas",
-            "",
-            "#cc0005",
-            "adidas",
-            false
-        ));
-
-
-        if (!existingCards) {
-            this._storage.set('cards', JSON.stringify(defaultCards));
-            return defaultCards;
-        }
-
-        return JSON.parse(existingCards);
+    private mapDTO(dto: CardDTO): Card {
+        return new Card(null, dto.name, "", dto.background, dto.logoFileName, false);
     }
 
     private getAllCards(): Promise<Array<Card>> {
@@ -132,6 +111,15 @@ export class CardService {
                 loading.dismiss();
             });
         });
+    }
+
+    private parseDefaultCardsFromJson(): Promise<Array<CardDTO>> {
+        return this.http
+            .get('assets/data/cards.json')
+            .toPromise()
+            .then((data) => {
+                return data.json();
+            });
     }
 
     delete(cardId: string): Promise<Card> {

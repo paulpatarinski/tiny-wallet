@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Target",
+        "logoFileName": "target",
+        "background": "#cc0005"
+    },
+    {
+        "name": "Canon",
+        "logoFileName": "canon",
+        "background": "#FFFFFF"
+    },
+    {
+        "name": "Citi",
+        "logoFileName": "citi",
+        "background": "#CCCCCC"
+    },
+    {
+        "name": "Costco",
+        "logoFileName": "costco",
+        "background": "#303030"
+    },
+    {
+        "name": "Adidas",
+        "logoFileName": "adidas",
+        "background": "#cc0005"
+    }
+]
