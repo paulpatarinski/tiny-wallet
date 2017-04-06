@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController, ScrollEvent } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 import { CardTypeModal } from "../card-type-modal/card-type";
 import { Card } from "../../models/card";
 import { CardService } from "../../services/card.service";
