@@ -11,6 +11,7 @@ import { CardDTO } from "../models/card.dto";
 @Injectable()
 export class CardService {
     private _storage: Storage;
+    private _allCards: Array<Card>;
 
     constructor(public strg: Storage, public loadingCtrl: LoadingController, public http: Http) {
         this._storage = strg;
@@ -76,10 +77,19 @@ export class CardService {
     }
 
     private getAllCards(): Promise<Array<Card>> {
-        return this._storage.ready().then(() => {
-            return this._storage.get('cards');
-        }).then((existingCards) => {
-            return this.populateDefaultCardsIfNull(existingCards);
+        return new Promise((resolve, reject) => {
+            if (this._allCards) {
+                resolve(this._allCards);
+            } else {
+                this._storage.ready().then(() => {
+                    return this._storage.get('cards');
+                }).then((existingCards) => {
+                    return this.populateDefaultCardsIfNull(existingCards);
+                }).then((allCards) => {
+                    this._allCards = allCards;
+                    return resolve(this._allCards);
+                });
+            }
         });
     }
 
@@ -87,7 +97,9 @@ export class CardService {
         return this._storage.ready().then(() => {
             return this._storage.set('cards', JSON.stringify(cards));
         }).then((result) => {
-            return cards;
+            //Update in memory storage
+            this._allCards = cards;
+            return this._allCards;
         });
     }
 
