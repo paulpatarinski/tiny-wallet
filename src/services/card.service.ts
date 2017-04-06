@@ -95,7 +95,9 @@ export class CardService {
 
     private saveAllCards(cards: Array<Card>): Promise<Array<Card>> {
         return this._storage.ready().then(() => {
-            return this._storage.set('cards', JSON.stringify(cards));
+            return this._storage.set('cards', JSON.stringify(cards)).then((result) => {
+                return result;
+            });
         }).then((result) => {
             //Update in memory storage
             this._allCards = cards;
@@ -112,11 +114,14 @@ export class CardService {
     }
 
     getActivatedCards(): Promise<Array<Card>> {
-        return this.getAllCards().then(this.filterActivated);
+        return this.getAllCards().then((cards) => {
+            return this.filterActivated(cards);
+        }
+        );
     }
 
     getNonActivatedCards(): Promise<Array<Card>> {
-        return this.getAllCards().then(this.filterNonActivated);
+        return this.getAllCards().then((cards) => { return this.filterNonActivated(cards); });
     }
 
     update(selectedCardId: string, comment: string, newBarcode: Barcode): Promise<Card> {
@@ -173,7 +178,7 @@ export class CardService {
             if (!cardToDelete)
                 return cardToDelete;
 
-            cardToDelete.barcode = null;
+            cardToDelete.barcode = new Barcode(null, null);
             cardToDelete.activated = false;
 
             return this.saveAllCards(cards).then(() => {
