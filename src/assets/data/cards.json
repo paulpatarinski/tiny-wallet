@@ -38,5 +38,10 @@
         "name": "Eddie Bauer",
         "logoFileName": "eddie-bauer",
         "background": "#ed1e30"
+    },
+    {
+        "name": "Famous Footwear",
+        "logoFileName": "famous-footwear",
+        "background": "#9e1b2d"
     }
 ]
