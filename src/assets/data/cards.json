@@ -43,5 +43,10 @@
         "name": "Famous Footwear",
         "logoFileName": "famous-footwear",
         "background": "#9e1b2d"
+    },
+    {
+        "name": "Foot Locker",
+        "logoFileName": "foot-locker",
+        "background": "#221f1e"
     }
 ]
