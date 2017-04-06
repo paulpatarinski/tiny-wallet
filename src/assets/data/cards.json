@@ -1,27 +1,37 @@
 [
     {
-        "name": "Target",
-        "logoFileName": "target",
-        "background": "#cc0005"
+        "name": "Advance Auto Parts",
+        "logoFileName": "advance-auto-parts",
+        "background": "#ed1e30"
     },
     {
-        "name": "Canon",
-        "logoFileName": "canon",
+        "name": "American Eagle Outfitters",
+        "logoFileName": "american-eagle-outfitters",
+        "background": "#001e42"
+    },
+    {
+        "name": "AAA",
+        "logoFileName": "aaa",
         "background": "#FFFFFF"
     },
     {
-        "name": "Citi",
-        "logoFileName": "citi",
-        "background": "#CCCCCC"
+        "name": "Autozone",
+        "logoFileName": "autozone",
+        "background": "#9c9c9c"
     },
     {
-        "name": "Costco",
-        "logoFileName": "costco",
-        "background": "#303030"
+        "name": "Best Buy",
+        "logoFileName": "best-buy",
+        "background": "#005186"
     },
     {
-        "name": "Adidas",
-        "logoFileName": "adidas",
-        "background": "#cc0005"
+        "name": "CVS Pharmacy",
+        "logoFileName": "cvs-pharmacy",
+        "background": "#c93c3b"
+    },
+    {
+        "name": "Dicks",
+        "logoFileName": "dicks",
+        "background": "#1c1a1b"
     }
 ]
