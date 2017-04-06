@@ -17,20 +17,46 @@ export class CardService {
     }
 
     private populateDefaultCardsIfNull(existingCards): Promise<Array<Card>> {
+        if (!existingCards) {
+            return this.parseDefaultCardsFromJson()
+                .then((dtos) => {
+                    return this.mapDTOs(dtos);
+                })
+                .then((cards) => {
+                    return this.saveCards(cards);
+                });
+        }
 
-        return new Promise((resolve, reject) => {
-            if (!existingCards) {
-                return this.parseDefaultCardsFromJson()
-                    .then((dtos) => {
-                        return this.mapDTOs(dtos);
-                    })
-                    .then((cards) => {
-                        return this.saveCards(cards);
-                    });
+        var existingCardsParsed = JSON.parse(existingCards);
+
+        return this.parseDefaultCardsFromJson()
+            .then((cardsFromJson) => {
+                if (this.newCardsAdded(cardsFromJson, existingCardsParsed)) {
+                    var newCards = this.getNewCards(cardsFromJson, existingCardsParsed);
+                    var mergedCardArray = existingCardsParsed.concat(newCards);
+
+                    return this.saveCards(mergedCardArray);
+                }
+
+                return existingCardsParsed;
+            });
+    }
+
+    private newCardsAdded(newCards: Array<CardDTO>, existingCards: Array<Card>): boolean {
+        return newCards.length > existingCards.length;
+    }
+
+    private getNewCards(cardsFromJson: Array<CardDTO>, existingCards: Array<Card>): Array<Card> {
+        var newCards = new Array<Card>();
+
+        cardsFromJson.forEach((dto) => {
+            //Card by that name does not exist
+            if (!(existingCards.find(crd => crd.name === dto.name))) {
+                newCards.push(this.mapDTO(dto));
             }
-
-            resolve(JSON.parse(existingCards));
         });
+
+        return newCards;
     }
 
     private saveCards(cards: Array<Card>) {

@@ -33,5 +33,10 @@
         "name": "Dicks",
         "logoFileName": "dicks",
         "background": "#1c1a1b"
+    },
+    {
+        "name": "Eddie Bauer",
+        "logoFileName": "eddie-bauer",
+        "background": "#ed1e30"
     }
 ]
