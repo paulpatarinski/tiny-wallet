@@ -15,6 +15,8 @@ import { BarcodeComponent } from "../components/barcode/barcode";
 import { EditPage } from "../pages/edit/edit";
 import { BarcodeDataService } from "../components/barcode/barcode.data.service";
 import { ElasticModule } from 'angular2-elastic';
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ElasticModule } from 'angular2-elastic';
       }
     }),
     IonicStorageModule.forRoot(),
-    ElasticModule
+    ElasticModule,
+    BrowserModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
