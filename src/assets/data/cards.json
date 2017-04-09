@@ -48,5 +48,65 @@
         "name": "Foot Locker",
         "logoFileName": "foot-locker",
         "background": "#221f1e"
+    },
+    {
+        "name": "Gamestop",
+        "logoFileName": "gamestop",
+        "background": "#000000"
+    },
+    {
+        "name": "Jewel Osco",
+        "logoFileName": "jewel-osco",
+        "background": "#FFFFFF"
+    },
+    {
+        "name": "Kohls",
+        "logoFileName": "kohls",
+        "background": "#811034"
+    },
+    {
+        "name": "Kroger",
+        "logoFileName": "kroger",
+        "background": "#ffffff"
+    },
+    {
+        "name": "Michaels Stores",
+        "logoFileName": "michaels-stores",
+        "background": "#c61827"
+    },
+    {
+        "name": "Old Navy",
+        "logoFileName": "old-navy",
+        "background": "#00afec"
+    },
+    {
+        "name": "Panera Bread",
+        "logoFileName": "panera-bread",
+        "background": "#667733"
+    },
+    {
+        "name": "PetSmart",
+        "logoFileName": "petsmart",
+        "background": "#ffffff"
+    },
+    {
+        "name": "Rite Aid",
+        "logoFileName": "rite-aid",
+        "background": "#ffffff"
+    },
+    {
+        "name": "Staples",
+        "logoFileName": "staples",
+        "background": "#ffffff"
+    },
+    {
+        "name": "Toys\"R\"Us",
+        "logoFileName": "toysrus",
+        "background": "#0160b0"
+    },
+    {
+        "name": "Walgreens",
+        "logoFileName": "walgreens",
+        "background": "#e51937"
     }
 ]
