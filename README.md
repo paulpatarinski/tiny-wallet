@@ -1,8 +1,21 @@
-# Get your app to the store faster...use this seed...
+# Lose weight...stop caring membership cards in your wallet
 
-Steps :
+To add new Cards : 
 
-1. Clone 
-2. Create a new Error Tracking project : https://sentry.io/
-3. Find/Replace tinywallet with your app name
-4. Update remote & push changes
+* Add an svg of the brand logo to ~/src/assets/card-logos/
+    * Make sure you follow the existing naming convention. 
+    
+    ```
+    best-buy.svg
+    ```
+* Add the card details to the cards.json file ~/src/assets/data/cards.json
+
+    * Make sure logoFileName matches the name in step 1
+
+    ``` JSON
+    {
+            "name": "Best Buy",
+            "logoFileName": "best-buy",
+            "background": "#005186"
+    }
+    ```
