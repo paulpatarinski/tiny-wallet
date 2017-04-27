@@ -113,15 +113,68 @@ export class CardService {
         return allCards.filter(c => !c.activated);
     }
 
+    private filterCustomCards(cards: Array<Card>) {
+        if (!cards)
+            return null;
+
+        return cards.filter(c => c.isCustomCard);
+    }
+
+    private getDefaultCustomCard(): Card {
+        var defaultBackground = "#CCCCCC";
+        var defaultLogoFileName = "custom-card";
+        var customCard = new Card(new Barcode(null, null), "Custom Card", "", defaultBackground, defaultLogoFileName, false);
+
+        customCard.isCustomCard = true;
+
+        return customCard;
+    }
+
+    private addCustomCardOption(nonActivatedCards: Array<Card>) {
+        var customCards = this.filterCustomCards(nonActivatedCards);
+
+        if (!customCards || customCards.length === 0) {
+            nonActivatedCards.unshift(this.getDefaultCustomCard());
+        }
+
+        return nonActivatedCards;
+    }
+
     getActivatedCards(): Promise<Array<Card>> {
         return this.getAllCards().then((cards) => {
             return this.filterActivated(cards);
-        }
-        );
+        });
     }
 
     getNonActivatedCards(): Promise<Array<Card>> {
-        return this.getAllCards().then((cards) => { return this.filterNonActivated(cards); });
+        return this.getAllCards()
+            .then((cards) => { return this.filterNonActivated(cards); })
+            .then((nonActivatedCards) => { return this.addCustomCardOption(nonActivatedCards) });
+    }
+
+    add(card: Card): Promise<Card> {
+        let loading = this.loadingCtrl.create({
+            content: 'Saving...'
+        });
+
+        loading.present();
+
+        return this.getAllCards().then((cards) => {
+            card.activated = true;
+
+            cards.push(card);
+
+            return this.saveAllCards(cards).then(() => {
+                return card;
+            }).then((card) => {
+                loading.dismiss();
+                return card;
+            }).catch((err) => {
+                console.log('Error Saving' + err);
+                loading.dismiss();
+            });
+        });
+
     }
 
     update(selectedCardId: string, comment: string, newBarcode: Barcode): Promise<Card> {

@@ -13,21 +13,14 @@ import { BarcodeDataService } from "../../components/barcode/barcode.data.servic
 })
 export class AddPage {
     card: Card;
-    cardNumber: string;
-    comment: string;
     size: BarcodeSize = BarcodeSize.Large;
-    barcodeOptions = null;
     private autoLaunchScan: Boolean;
 
     constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService, public cardService: CardService, public dataService: BarcodeDataService) {
-        this.card = params.data.selectedCard;
+        var selectedCard = params.data.selectedCard;
+        selectedCard.barcode = new Barcode(null, null);
+        this.card = selectedCard;
         this.autoLaunchScan = params.data.autoLaunchScan;
-
-        if (this.card && this.card.barcode && this.card.barcode.number) {
-            this.cardNumber = this.card.barcode.number;
-            this.comment = this.card.comment;
-            this.barcodeOptions = this.card.barcode.options;;
-        }
     }
 
     ionViewWillEnter() {
@@ -39,16 +32,13 @@ export class AddPage {
     scanBarcode() {
         this.barcodeService.scanBarcode()
             .then((barcodeData) => {
-                this.cardNumber = barcodeData.text;
-                this.barcodeOptions = barcodeData.options;
+                this.card.barcode = new Barcode(barcodeData.text, barcodeData.options);
             })
             .catch(err => console.log);
     }
 
-    save(existingCard: Card, newCardNumber: string, comment: string, newBarcodeOptions) {
-        var newBarcode = new Barcode(newCardNumber, newBarcodeOptions);
-
-        this.cardService.update(existingCard.id, comment, newBarcode).then((updatedCard) => {
+    save(existingCard: Card) {
+        this.cardService.update(existingCard.id, existingCard.comment, existingCard.barcode).then((updatedCard) => {
             this.card = updatedCard;
         }).then(() => {
             this.navCtrl.pop();

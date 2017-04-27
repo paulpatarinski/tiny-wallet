@@ -11,7 +11,7 @@
             <button ion-button (click)="delete(card)">
                 Delete
             </button>
-            <button ion-button (click)="save(card, cardNumber, comment, barcodeOptions)" [disabled]="!dataService.validCardNumber">
+            <button ion-button (click)="save(card)" [disabled]="!dataService.validCardNumber">
                 Save
             </button>
         </ion-buttons>
@@ -27,7 +27,7 @@
         </ion-row>
         <ion-row>
             <ion-col class="barcode-wrapper">
-                <barcode [barcodeNumber]="cardNumber" [options]="barcodeOptions" [size]="size"></barcode>
+                <barcode [barcode]="card.barcode" [size]="size"></barcode>
             </ion-col>
         </ion-row>
     </ion-grid>
@@ -37,7 +37,7 @@
             <ion-col col-11>
                 <ion-item>
                     <ion-label stacked>Card Number</ion-label>
-                    <ion-input type="text" [(ngModel)]="cardNumber"></ion-input>
+                    <ion-input type="text" [(ngModel)]="card.barcode.number"></ion-input>
                 </ion-item>
             </ion-col>
 
@@ -52,7 +52,7 @@
             <ion-col>
                 <ion-item class="comment-field">
                     <ion-label stacked>Notes</ion-label>
-                    <ion-textarea fz-elastic [(ngModel)]="comment"></ion-textarea>
+                    <ion-textarea fz-elastic [(ngModel)]="card.comment"></ion-textarea>
                 </ion-item>
             </ion-col>
         </ion-row>

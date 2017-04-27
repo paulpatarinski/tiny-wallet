@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef, Input } from "@angular/core";
 import JsBarcode from 'jsbarcode';
 import { BarcodeSize } from "../../models/barcode.size";
 import { BarcodeDataService } from "./barcode.data.service";
+import { Barcode } from "../../models/barcode";
 
 @Component({
     selector: 'barcode',
@@ -9,10 +10,9 @@ import { BarcodeDataService } from "./barcode.data.service";
 })
 
 export class BarcodeComponent {
-    @ViewChild('barcode') barcode: ElementRef;
-    @Input() barcodeNumber: string;
+    @ViewChild('barcode') barcodeElm: ElementRef;
     @Input() size: BarcodeSize;
-    @Input() options;
+    @Input() barcode: Barcode;
     validCardNumber: boolean = false;
     private defaultBarcodeOptions = {
         format: "UPC",
@@ -25,40 +25,40 @@ export class BarcodeComponent {
 
     ngOnChanges(changes: any) {
         try {
-            if (!this.barcodeNumber) {
+            if (!this.barcode || !this.barcode.number) {
                 this.dataService.validCardNumber = false;
                 this.validCardNumber = false;
                 return;
             }
 
-            if (!this.options) {
-                this.options = this.defaultBarcodeOptions;
+            if (!this.barcode.options) {
+                this.barcode.options = this.defaultBarcodeOptions;
             }
 
             switch (this.size) {
                 case BarcodeSize.Large:
                     {
-                        this.options.height = 200;
-                        this.options.width = 4;
+                        this.barcode.options.height = 200;
+                        this.barcode.options.width = 4;
                         break;
                     }
 
                 case BarcodeSize.Medium:
                     {
-                        this.options.height = 130;
-                        this.options.width = 5;
+                        this.barcode.options.height = 130;
+                        this.barcode.options.width = 5;
                         break;
                     }
 
                 default:
                     {
-                        this.options.height = 130;
-                        this.options.width = 5;
+                        this.barcode.options.height = 130;
+                        this.barcode.options.width = 5;
                         break;
                     }
             }
 
-            JsBarcode(this.barcode.nativeElement, this.barcodeNumber, this.options);
+            JsBarcode(this.barcodeElm.nativeElement, this.barcode.number, this.barcode.options);
             this.dataService.validCardNumber = true;
             this.validCardNumber = true;
         }

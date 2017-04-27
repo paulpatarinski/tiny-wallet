@@ -10,7 +10,7 @@
         <ion-title>Add</ion-title>
 
         <ion-buttons end>
-            <button ion-button (click)="save(card)" [disabled]="!dataService.validCardNumber">
+            <button ion-button (click)="save(card)" [disabled]="!canSave()">
                 Save
             </button>
         </ion-buttons>
@@ -33,6 +33,12 @@
 
     <ion-grid>
         <ion-row>
+            <ion-item>
+                <ion-label stacked>Card Name</ion-label>
+                <ion-input type="text" [(ngModel)]="card.name"></ion-input>
+            </ion-item>
+        </ion-row>
+        <ion-row>
             <ion-col col-11>
                 <ion-item>
                     <ion-label stacked>Card Number</ion-label>
@@ -44,9 +50,6 @@
                 <img class="barcode-icon" src="assets/scan_barcode.svg" />
             </ion-col>
         </ion-row>
-    </ion-grid>
-
-    <ion-grid>
         <ion-row>
             <ion-col>
                 <ion-item class="comment-field">
@@ -56,4 +59,5 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+
 </ion-content>

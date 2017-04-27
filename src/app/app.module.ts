@@ -17,12 +17,14 @@ import { BarcodeDataService } from "../components/barcode/barcode.data.service";
 import { ElasticModule } from 'angular2-elastic';
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from "@angular/http";
+import { AddCustomPage } from "../pages/add.custom/add";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddPage,
+    AddCustomPage,
     EditPage,
     CardTypeModal,
     BarcodeComponent
@@ -49,6 +51,7 @@ import { HttpModule } from "@angular/http";
     MyApp,
     HomePage,
     AddPage,
+    AddCustomPage,
     EditPage,
     CardTypeModal,
     BarcodeComponent
