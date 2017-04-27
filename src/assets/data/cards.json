@@ -340,14 +340,104 @@
         "background": "#439539"
     },
     {
+        "name": "Radio Shack",
+        "logoFileName": "radio_shack",
+        "background": "#ffffff"
+    },
+    {
         "name": "Rite Aid",
         "logoFileName": "rite-aid",
         "background": "#ffffff"
+    }
+    {
+        "name": "Ross",
+        "logoFileName": "ross",
+        "background": "#0060a9"
+    }
+    {
+        "name": "Ruby Tuesday",
+        "logoFileName": "ruby_tuesday",
+        "background": "#ffffff"
+    }
+    {
+        "name": "Safeway",
+        "logoFileName": "safeway",
+        "background": "#ffffff"
+    },
+    {
+        "name": "Saks Fifth Avenue",
+        "logoFileName": "saks_fifth_avenue",
+        "background": "#262626"
+    },
+    {
+        "name": "Sams Club",
+        "logoFileName": "sams_club",
+        "background": "#355ca9"
+    },
+    {
+        "name": "Sears",
+        "logoFileName": "sears",
+        "background": "#214292"
+    },
+    {
+        "name": "Sephora",
+        "logoFileName": "sephora",
+        "background": "#231f20"
     },
     {
         "name": "Staples",
         "logoFileName": "staples",
         "background": "#ffffff"
+    },
+    {
+        "name": "Starbucks",
+        "logoFileName": "starbucks",
+        "background": "#ffffff"
+    },
+    {
+        "name": "Stein Mart",
+        "logoFileName": "stein_mart",
+        "background": "#ffffff"
+    },
+    {
+        "name": "Subway",
+        "logoFileName": "subway",
+        "background": "#fcee21"
+    },
+    {
+        "name": "Talbots",
+        "logoFileName": "talbots",
+        "background": "#f3d221"
+    },
+    {
+        "name": "Target",
+        "logoFileName": "target",
+        "background": "#bc202b"
+    },
+    {
+        "name": "TGI Fridays",
+        "logoFileName": "tgi_fridays",
+        "background": "#262626"
+    },
+    {
+        "name": "The Body Shop",
+        "logoFileName": "the_body_shop",
+        "background": "#a8cc43"
+    },
+    {
+        "name": "The Home Depot",
+        "logoFileName": "the_home_depot",
+        "background": "#e88923"
+    },
+    {
+        "name": "The North Face",
+        "logoFileName": "the_north_face",
+        "background": "#e92d3f"
+    },
+    {
+        "name": "The Vitamin Shoppe",
+        "logoFileName": "the_vitamin_shoppe",
+        "background": "#0558a7"
     },
     {
         "name": "Toys\"R\"Us",
