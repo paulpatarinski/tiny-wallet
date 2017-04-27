@@ -155,6 +155,11 @@
         "background": "#000000"
     },
     {
+        "name": "Gift Card",
+        "logoFileName": "gift_card",
+        "background": "#16783c"
+    },
+    {
         "name": "Gold's Gym",
         "logoFileName": "golds_gym",
         "background": "#f2f2f2"
@@ -175,6 +180,11 @@
         "background": "#f68632"
     },
     {
+        "name": "ID Card",
+        "logoFileName": "id_card",
+        "background": "#015086"
+    },
+    {
         "name": "Jewel Osco",
         "logoFileName": "jewel-osco",
         "background": "#FFFFFF"
@@ -188,6 +198,16 @@
         "name": "Kroger",
         "logoFileName": "kroger",
         "background": "#ffffff"
+    },
+    {
+        "name": "Library Card",
+        "logoFileName": "library",
+        "background": "#be1e2d"
+    },
+    {
+        "name": "Loyaliy Card",
+        "logoFileName": "loyality_card",
+        "background": "#333333"
     },
     {
         "name": "Michaels Stores",
