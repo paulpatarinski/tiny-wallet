@@ -255,9 +255,44 @@
         "background": "#333333"
     },
     {
+        "name": "Marianos",
+        "logoFileName": "marianos",
+        "background": "#e2c090"
+    },
+    {
+        "name": "MC Sports",
+        "logoFileName": "mc_sports",
+        "background": "#00a1df"
+    },
+    {
+        "name": "Meijer",
+        "logoFileName": "meijer",
+        "background": "#ffffff"
+    },
+    {
         "name": "Michaels Stores",
         "logoFileName": "michaels-stores",
         "background": "#c61827"
+    },
+    {
+        "name": "National",
+        "logoFileName": "national",
+        "background": "#04703d"
+    },
+    {
+        "name": "Nordstrom",
+        "logoFileName": "nordstrom",
+        "background": "#787776"
+    },
+    {
+        "name": "Office Depot",
+        "logoFileName": "office_depot",
+        "background": "#cf0a2c"
+    },
+    {
+        "name": "Office Max",
+        "logoFileName": "officemax",
+        "background": "#fdbe13"
     },
     {
         "name": "Old Navy",
@@ -265,14 +300,44 @@
         "background": "#00afec"
     },
     {
+        "name": "Pandora",
+        "logoFileName": "pandora",
+        "background": "#ddd7ca"
+    },
+    {
         "name": "Panera Bread",
         "logoFileName": "panera-bread",
         "background": "#667733"
     },
     {
+        "name": "Payless",
+        "logoFileName": "payless",
+        "background": "#f58222"
+    },
+    {
+        "name": "Pep Boys Auto",
+        "logoFileName": "pep_boys_auto",
+        "background": "#e31d38"
+    },
+    {
         "name": "PetSmart",
         "logoFileName": "petsmart",
         "background": "#ffffff"
+    },
+    {
+        "name": "Piggly Wiggly",
+        "logoFileName": "piggly_wiggly",
+        "background": "#ec1e30"
+    },
+    {
+        "name": "Planet Fitness",
+        "logoFileName": "planet_fitness",
+        "background": "#ffffff"
+    },
+    {
+        "name": "Publix",
+        "logoFileName": "publix",
+        "background": "#439539"
     },
     {
         "name": "Rite Aid",
