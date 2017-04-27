@@ -445,8 +445,38 @@
         "background": "#0160b0"
     },
     {
+        "name": "US Airways",
+        "logoFileName": "us_airways",
+        "background": "#0d00hc"
+    },
+    {
+        "name": "Victoria's Secret",
+        "logoFileName": "victorias_secret",
+        "background": "#ee5c98"
+    },
+    {
         "name": "Walgreens",
         "logoFileName": "walgreens",
         "background": "#e51937"
+    },
+    {
+        "name": "wegmans",
+        "logoFileName": "wegmans",
+        "background": "#9c5925"
+    },
+    {
+        "name": "Whole Foods Market",
+        "logoFileName": "whole_foods_market",
+        "background": "#006f52"
+    },
+    {
+        "name": "Winn Dixie",
+        "logoFileName": "winn_dixie",
+        "background": "#262626"
+    },
+    {
+        "name": "World Market",
+        "logoFileName": "world_market",
+        "background": "#b32c28"
     }
 ]
