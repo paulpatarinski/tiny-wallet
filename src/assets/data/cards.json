@@ -15,9 +15,29 @@
         "background": "#FFFFFF"
     },
     {
+        "name": "AARP",
+        "logoFileName": "aarp",
+        "background": "#FFFFFF"
+    },
+    {
+        "name": "Ace Hardware",
+        "logoFileName": "ace_hardware",
+        "background": "#e41e39"
+    },
+    {
+        "name": "Aeropostale",
+        "logoFileName": "aeropostale",
+        "background": "#0d004c"
+    },
+    {
         "name": "Autozone",
         "logoFileName": "autozone",
         "background": "#9c9c9c"
+    },
+    {
+        "name": "Barnes & Noble",
+        "logoFileName": "barnes_&_noble",
+        "background": "#275a34"
     },
     {
         "name": "Best Buy",
