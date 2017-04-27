@@ -180,14 +180,49 @@
         "background": "#f68632"
     },
     {
+        "name": "Hair Cuttery",
+        "logoFileName": "hair_cuttery",
+        "background": "#ffffff"
+    },
+    {
+        "name": "Hallmark",
+        "logoFileName": "hallmark",
+        "background": "#2e2c76"
+    },
+    {
+        "name": "Hot Topic",
+        "logoFileName": "hot_topic",
+        "background": "#20201e"
+    },
+    {
         "name": "ID Card",
         "logoFileName": "id_card",
         "background": "#015086"
     },
     {
+        "name": "IGA",
+        "logoFileName": "iga",
+        "background": "#d32d27"
+    },
+    {
+        "name": "Izod",
+        "logoFileName": "izod",
+        "background": "#095830"
+    },
+    {
+        "name": "Jersey Mikes",
+        "logoFileName": "jersey_mikes",
+        "background": "#ef6927"
+    },
+    {
         "name": "Jewel Osco",
         "logoFileName": "jewel-osco",
         "background": "#FFFFFF"
+    },
+    {
+        "name": "Kmart",
+        "logoFileName": "kmart",
+        "background": "#cb2027"
     },
     {
         "name": "Kohls",
@@ -200,8 +235,18 @@
         "background": "#ffffff"
     },
     {
+        "name": "LA Fitness",
+        "logoFileName": "la_fitness",
+        "background": "#ffffff"
+    },
+    {
         "name": "Library Card",
         "logoFileName": "library",
+        "background": "#be1e2d"
+    },
+    {
+        "name": "Lowes",
+        "logoFileName": "lowes",
         "background": "#be1e2d"
     },
     {
