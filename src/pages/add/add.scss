@@ -40,5 +40,30 @@ page-add {
             border-radius: 5px;
         }
     }
+
+    //Custom sizes to make the bardcode scan icon look good
+    [col-10] {
+        flex: 0 0 percentage(.85);
+        width: percentage(.85);
+        // Add a `max-width` to ensure content within each column does not blow out
+        // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+        // do not appear to require this.
+        max-width: percentage(.85);
+    }
+
+    [col-2] {
+        flex: 0 0 percentage(.15);
+        width: percentage(.15);
+        // Add a `max-width` to ensure content within each column does not blow out
+        // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+        // do not appear to require this.
+        max-width: percentage(.15);
+    }
+
+    .barcode-icon {
+        height : 45px;
+        width : 45px;
+        float : right;
+    }
 }
 }

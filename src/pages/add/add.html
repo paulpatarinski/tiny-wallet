@@ -33,14 +33,14 @@
 
     <ion-grid>
         <ion-row>
-            <ion-col col-11>
+            <ion-col col-10>
                 <ion-item>
                     <ion-label stacked>Card Number</ion-label>
                     <ion-input type="text" [(ngModel)]="cardNumber"></ion-input>
                 </ion-item>
             </ion-col>
 
-            <ion-col col-1 align-self-end no-padding (click)="scanBarcode()">
+            <ion-col col-2 align-self-end no-padding (click)="scanBarcode()">
                 <img class="barcode-icon" src="assets/scan_barcode.svg" />
             </ion-col>
         </ion-row>
