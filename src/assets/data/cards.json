@@ -40,9 +40,69 @@
         "background": "#275a34"
     },
     {
+        "name": "Bass Pro Shops",
+        "logoFileName": "bass_pro_shops",
+        "background": "#595a5e"
+    },
+    {
+        "name": "Bebe",
+        "logoFileName": "bebe",
+        "background": "#262626"
+    },
+    {
+        "name": "Big Lots",
+        "logoFileName": "big_lots",
+        "background": "#262626"
+    },
+    {
         "name": "Best Buy",
         "logoFileName": "best-buy",
         "background": "#005186"
+    },
+    {
+        "name": "Blockbuster",
+        "logoFileName": "blockbuster",
+        "background": "#323897"
+    },
+    {
+        "name": "Cabelas",
+        "logoFileName": "cabelas",
+        "background": "#024d29"
+    },
+    {
+        "name": "Calvin Klein",
+        "logoFileName": "calvin_klein",
+        "background": "#f2f2f2"
+    },
+    {
+        "name": "Champs Sports",
+        "logoFileName": "champs",
+        "background": "#262626"
+    },
+    {
+        "name": "Champs Sports",
+        "logoFileName": "champs",
+        "background": "#262626"
+    },
+    {
+        "name": "Charming Charlie",
+        "logoFileName": "charming_charlie",
+        "background": "#e9128d"
+    },
+    {
+        "name": "Cold Stone Creamery",
+        "logoFileName": "cold_stone_creamery",
+        "background": "#b22d25"
+    },
+    {
+        "name": "Costco",
+        "logoFileName": "costco",
+        "background": "#ffffff"
+    },
+    {
+        "name": "Cub Foods",
+        "logoFileName": "cub_foods",
+        "background": "#ffffff"
     },
     {
         "name": "CVS Pharmacy",
@@ -50,9 +110,24 @@
         "background": "#c93c3b"
     },
     {
+        "name": "Denny's",
+        "logoFileName": "dennys",
+        "background": "#ed2025"
+    },
+    {
         "name": "Dicks",
         "logoFileName": "dicks",
         "background": "#1c1a1b"
+    },
+    {
+        "name": "Dollar General",
+        "logoFileName": "dollar_general",
+        "background": "#262626"
+    },
+    {
+        "name": "Dollar Rent A Car",
+        "logoFileName": "dollar_rent_a_car",
+        "background": "#ffffff"
     },
     {
         "name": "Eddie Bauer",
@@ -70,9 +145,34 @@
         "background": "#221f1e"
     },
     {
+        "name": "Fry's Electronics",
+        "logoFileName": "frys",
+        "background": "#ec2028"
+    },
+    {
         "name": "Gamestop",
         "logoFileName": "gamestop",
         "background": "#000000"
+    },
+    {
+        "name": "Gold's Gym",
+        "logoFileName": "golds_gym",
+        "background": "#f2f2f2"
+    },
+    {
+        "name": "Goodwill",
+        "logoFileName": "goodwill",
+        "background": "#83d336"
+    },
+    {
+        "name": "Guess",
+        "logoFileName": "guess",
+        "background": "#f2f2f2"
+    },
+    {
+        "name": "Gymboree",
+        "logoFileName": "gymboree",
+        "background": "#f68632"
     },
     {
         "name": "Jewel Osco",
