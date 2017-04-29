@@ -10,6 +10,7 @@ export class Card {
         this.background = background;
         this.logoFullPath = "assets/card-logos/" + logoFileName + ".svg";
         this.activated = activated;
+        this.isCustomCard = false;
     }
 
     id: string;
@@ -19,4 +20,5 @@ export class Card {
     background: string;
     logoFullPath: string;
     activated: Boolean;
+    isCustomCard: Boolean;
 }  

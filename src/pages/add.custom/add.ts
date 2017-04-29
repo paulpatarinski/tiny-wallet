@@ -11,23 +11,20 @@ import { BarcodeDataService } from "../../components/barcode/barcode.data.servic
     selector: 'page-add',
     templateUrl: 'add.html'
 })
-export class AddPage {
+export class AddCustomPage {
     card: Card;
     cardNumber: string;
+    cardName: string;
     comment: string;
     size: BarcodeSize = BarcodeSize.Large;
     barcodeOptions = null;
-    private autoLaunchScan: Boolean;
 
     constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService, public cardService: CardService, public dataService: BarcodeDataService) {
         this.card = params.data.selectedCard;
-        this.autoLaunchScan = params.data.autoLaunchScan;
     }
 
     ionViewWillEnter() {
-        if (this.autoLaunchScan) {
-            this.scanBarcode();
-        }
+        this.scanBarcode();
     }
 
     scanBarcode() {
@@ -39,7 +36,11 @@ export class AddPage {
             .catch(err => console.log);
     }
 
-    save(existingCard: Card, newCardNumber: string, comment: string, newBarcodeOptions) {
+    canSave(): Boolean {
+        return this.dataService.validCardNumber && this.cardName !== "";
+    }
+
+    save(existingCard: Card, newCardNumber: string, comment: string, cardName: string, newBarcodeOptions) {
         var newBarcode = new Barcode(newCardNumber, newBarcodeOptions);
 
         this.cardService.update(existingCard.id, comment, newBarcode).then((updatedCard) => {

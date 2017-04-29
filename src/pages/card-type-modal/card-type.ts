@@ -4,6 +4,7 @@ import { AddPage } from "../add/add";
 import { CardService } from "../../services/card.service";
 import { Card } from "../../models/card";
 import { StatusBar } from "@ionic-native/status-bar";
+import { AddCustomPage } from "../add.custom/add";
 
 @Component({
     selector: 'cart-type-modal',
@@ -43,7 +44,9 @@ export class CardTypeModal {
             selectedCard: selectedCard
         };
 
-        return this.appCtrl.getRootNav().push(AddPage, params).then(() => {
+        var navToPage = selectedCard.isCustomCard ? AddCustomPage : AddPage;
+
+        return this.appCtrl.getRootNav().push(navToPage, params).then(() => {
             return this.viewCtrl.dismiss();
         });
     }
