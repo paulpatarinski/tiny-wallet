@@ -43,7 +43,11 @@ export class AddCustomPage {
     save(existingCard: Card, newCardNumber: string, comment: string, cardName: string, newBarcodeOptions) {
         var newBarcode = new Barcode(newCardNumber, newBarcodeOptions);
 
-        this.cardService.update(existingCard.id, comment, newBarcode).then((updatedCard) => {
+        existingCard.barcode = newBarcode;
+        existingCard.comment = comment;
+        existingCard.name = cardName;
+
+        this.cardService.saveCustomCard(existingCard).then((updatedCard) => {
             this.card = updatedCard;
         }).then(() => {
             this.navCtrl.pop();

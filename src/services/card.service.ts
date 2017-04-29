@@ -209,6 +209,32 @@ export class CardService {
         });
     }
 
+    saveCustomCard(newCard: Card): Promise<Card> {
+        let loading = this.loadingCtrl.create({
+            content: 'Saving...'
+        });
+
+        loading.present();
+
+        return this.getAllCards().then((cards) => {
+            if (!newCard.activated) {
+                newCard.activated = true;
+            }
+
+            cards.push(newCard);
+
+            return this.saveAllCards(cards).then(() => {
+                return newCard;
+            }).then((card) => {
+                loading.dismiss();
+                return card;
+            }).catch((err) => {
+                console.log('Error Saving' + err);
+                loading.dismiss();
+            });
+        });
+    }
+
     private parseDefaultCardsFromJson(): Promise<Array<CardDTO>> {
         return this.http
             .get('assets/data/cards.json')
