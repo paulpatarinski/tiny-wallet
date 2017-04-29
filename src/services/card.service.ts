@@ -177,7 +177,7 @@ export class CardService {
 
     }
 
-    update(selectedCardId: string, comment: string, newBarcode: Barcode): Promise<Card> {
+    update(selectedCardId: string, comment: string, newBarcode: Barcode, cardName?: string): Promise<Card> {
         let loading = this.loadingCtrl.create({
             content: 'Saving...'
         });
@@ -192,6 +192,10 @@ export class CardService {
 
             selectedCard.barcode = newBarcode;
             selectedCard.comment = comment;
+
+            if (cardName) {
+                selectedCard.name = cardName;
+            }
 
             if (!selectedCard.activated) {
                 selectedCard.activated = true;
@@ -259,6 +263,11 @@ export class CardService {
 
             cardToDelete.barcode = new Barcode(null, null);
             cardToDelete.activated = false;
+
+            //Remove custom cards from the list
+            if (cardToDelete.isCustomCard) {
+                cards.splice(cards.indexOf(cardToDelete), 1);
+            }
 
             return this.saveAllCards(cards).then(() => {
                 return cardToDelete;

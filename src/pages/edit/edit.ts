@@ -16,6 +16,7 @@ export class EditPage {
     card: Card;
     cardNumber: string;
     comment: string;
+    cardName: string;
     size: BarcodeSize = BarcodeSize.Large;
     barcodeOptions = null;
 
@@ -26,6 +27,7 @@ export class EditPage {
             this.cardNumber = this.card.barcode.number;
             this.comment = this.card.comment;
             this.barcodeOptions = this.card.barcode.options;
+            this.cardName = this.card.name;
         }
     }
 
@@ -42,10 +44,18 @@ export class EditPage {
             .catch(err => console.log);
     }
 
-    save(existingCard: Card, newCardNumber: string, comment: string, newBarcodeOptions) {
+    canSave() {
+        if (this.card.isCustomCard) {
+            return this.dataService.validCardNumber && this.cardName !== "";
+        }
+
+        return this.dataService.validCardNumber;
+    }
+
+    save(existingCard: Card, newCardNumber: string, comment: string, cardName: string, newBarcodeOptions) {
         var newBarcode = new Barcode(newCardNumber, newBarcodeOptions);
 
-        return this.cardService.update(existingCard.id, comment, newBarcode).then((updatedCard) => {
+        return this.cardService.update(existingCard.id, comment, newBarcode, cardName).then((updatedCard) => {
             this.card = updatedCard;
         }).then(() => {
             this.navCtrl.pop();

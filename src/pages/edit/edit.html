@@ -11,7 +11,7 @@
             <button ion-button (click)="delete(card)">
                 Delete
             </button>
-            <button ion-button (click)="save(card, cardNumber, comment, barcodeOptions)" [disabled]="!dataService.validCardNumber">
+            <button ion-button (click)="save(card, cardNumber, comment, cardName, barcodeOptions)" [disabled]="!canSave()">
                 Save
             </button>
         </ion-buttons>
@@ -33,6 +33,13 @@
     </ion-grid>
 
     <ion-grid>
+        <ion-row *ngIf="card.isCustomCard">
+            <ion-item>
+                <ion-label stacked>Card Name</ion-label>
+                <ion-input type="text" [(ngModel)]="cardName"></ion-input>
+            </ion-item>
+        </ion-row>
+
         <ion-row>
             <ion-col col-11>
                 <ion-item>
