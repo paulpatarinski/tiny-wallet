@@ -43,14 +43,6 @@
 
     <card-number [(num)]="cardNumber" [barcodeOptions]="barcodeOptions"></card-number>
 
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                <ion-item class="comment-field">
-                    <ion-label stacked>Notes</ion-label>
-                    <ion-textarea fz-elastic [(ngModel)]="comment"></ion-textarea>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <comment [(comment)]="comment"></comment>
+
 </ion-content>

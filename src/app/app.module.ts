@@ -19,6 +19,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from "@angular/http";
 import { AddCustomPage } from "../pages/add.custom/add";
 import { CardNumberComponent } from "../components/card-number/card.Number";
+import { CommentComponent } from "../components/comment/comment";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CardNumberComponent } from "../components/card-number/card.Number";
     EditPage,
     CardTypeModal,
     BarcodeComponent,
+    CommentComponent,
     CardNumberComponent
   ],
   imports: [
@@ -57,6 +59,7 @@ import { CardNumberComponent } from "../components/card-number/card.Number";
     EditPage,
     CardTypeModal,
     BarcodeComponent,
+    CommentComponent,
     CardNumberComponent
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, BarcodeScanner, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, BarcodeDataService]

@@ -1,0 +1,10 @@
+<ion-grid>
+    <ion-row>
+        <ion-col>
+            <ion-item>
+                <ion-label stacked>Notes</ion-label>
+                <ion-textarea fz-elastic [(ngModel)]="comment" (ngModelChange)="commentChange.emit($event)"></ion-textarea>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+</ion-grid>
