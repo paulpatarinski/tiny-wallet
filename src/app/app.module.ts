@@ -18,7 +18,7 @@ import { ElasticModule } from 'angular2-elastic';
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from "@angular/http";
 import { AddCustomPage } from "../pages/add.custom/add";
-import { CardNumberComponent } from "../components/card-number/card.Number";
+import { CardNumberComponent } from "../components/card-number/card.number";
 import { CommentComponent } from "../components/comment/comment";
 import { CardNameComponent } from "../components/card-name/card.name";
 
