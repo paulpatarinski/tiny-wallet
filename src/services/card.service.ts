@@ -140,15 +140,34 @@ export class CardService {
         return nonActivatedCards;
     }
 
+    alphabetical(a: Card, b: Card) {
+        var A = a.name.toLowerCase();
+        var B = b.name.toLowerCase();
+        if (A < B) {
+            return -1;
+        } else if (A > B) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    sort(cards: Array<Card>): Array<Card> {
+        return cards.sort(this.alphabetical);
+    }
+
     getActivatedCards(): Promise<Array<Card>> {
         return this.getAllCards().then((cards) => {
             return this.filterActivated(cards);
+        }).then((cards) => {
+            return this.sort(cards);
         });
     }
 
     getNonActivatedCards(): Promise<Array<Card>> {
         return this.getAllCards()
             .then((cards) => { return this.filterNonActivated(cards); })
+            .then((cards) => { return this.sort(cards); })
             .then((nonActivatedCards) => { return this.addCustomCardOption(nonActivatedCards) });
     }
 
