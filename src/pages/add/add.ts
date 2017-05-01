@@ -17,17 +17,13 @@ export class AddPage {
     comment: string;
     size: BarcodeSize = BarcodeSize.Large;
     barcodeOptions = null;
-    private autoLaunchScan: Boolean;
 
     constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService, public cardService: CardService, public dataService: BarcodeDataService) {
         this.card = params.data.selectedCard;
-        this.autoLaunchScan = params.data.autoLaunchScan;
     }
 
     ionViewWillEnter() {
-        if (this.autoLaunchScan) {
-            this.scanBarcode();
-        }
+        this.scanBarcode();
     }
 
     scanBarcode() {

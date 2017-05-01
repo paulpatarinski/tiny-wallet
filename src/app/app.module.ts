@@ -18,6 +18,7 @@ import { ElasticModule } from 'angular2-elastic';
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from "@angular/http";
 import { AddCustomPage } from "../pages/add.custom/add";
+import { CardNumberComponent } from "../components/card-number/card.Number";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddCustomPage } from "../pages/add.custom/add";
     AddCustomPage,
     EditPage,
     CardTypeModal,
-    BarcodeComponent
+    BarcodeComponent,
+    CardNumberComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -54,7 +56,8 @@ import { AddCustomPage } from "../pages/add.custom/add";
     AddCustomPage,
     EditPage,
     CardTypeModal,
-    BarcodeComponent
+    BarcodeComponent,
+    CardNumberComponent
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, BarcodeScanner, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, BarcodeDataService]
 })
