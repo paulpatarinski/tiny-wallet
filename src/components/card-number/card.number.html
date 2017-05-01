@@ -1,14 +1,20 @@
 <ion-grid>
     <ion-row>
         <ion-col col-10>
-            <ion-item>
-                <ion-label stacked>Card Number</ion-label>
+            <ion-item [ngClass]="!isValid() ? 'invalid' : ''">
+                <ion-label stacked>Card Number (required)</ion-label>
                 <ion-input type="text" [(ngModel)]="num" (ngModelChange)="numChange.emit($event)"></ion-input>
             </ion-item>
         </ion-col>
 
         <ion-col col-2 align-self-end no-padding (click)="scanBarcode()">
             <img class="barcode-icon" src="assets/scan_barcode.svg" />
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="!isValid()" class="invalid-lbl">
+        <ion-col>
+            <ion-label>Card Number does not match expected format</ion-label>
         </ion-col>
     </ion-row>
 </ion-grid>

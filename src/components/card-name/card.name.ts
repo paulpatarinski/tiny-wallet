@@ -8,4 +8,8 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 export class CardNameComponent {
     @Input() name: string;
     @Output() nameChange: EventEmitter<String> = new EventEmitter<String>();
+
+    isValid() {
+        return this.name;
+    }
 }

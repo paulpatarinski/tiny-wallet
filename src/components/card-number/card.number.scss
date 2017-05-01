@@ -1,5 +1,6 @@
- card-number {
-//Custom sizes to make the bardcode scan icon look good
+#wallet {
+card-number {
+    //Custom sizes to make the bardcode scan icon look good
     [col-10] {
         flex: 0 0 percentage(.85);
         width: percentage(.85);
@@ -24,9 +25,16 @@
         float : right;
     }
 
-    .invalid {
+    .invalid {  
         .item-inner {
             border-bottom: 0.55px solid red;
         }
     } 
+
+    .invalid-lbl {
+        color: red;
+        padding-left: 16px;
+        font-size : 1.2rem;
+    }
  }
+} 

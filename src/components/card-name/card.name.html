@@ -1,8 +1,14 @@
 <ion-grid>
     <ion-row>
-        <ion-item>
-            <ion-label stacked>Card Name</ion-label>
+        <ion-item [ngClass]="!isValid() ? 'invalid' : ''">
+            <ion-label stacked>Card Name (required)</ion-label>
             <ion-input type="text" [(ngModel)]="name" (ngModelChange)="nameChange.emit($event)"></ion-input>
         </ion-item>
+    </ion-row>
+
+    <ion-row *ngIf="!isValid()" class="invalid-lbl">
+        <ion-col>
+            <ion-label>Card Name is required</ion-label>
+        </ion-col>
     </ion-row>
 </ion-grid>

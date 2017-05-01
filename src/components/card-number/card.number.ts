@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { BarcodeScannerService } from "../../services/barcode.scanner.service";
+import { BarcodeDataService } from "../../components/barcode/barcode.data.service";
 
 @Component({
     selector: 'card-number',
@@ -12,7 +13,11 @@ export class CardNumberComponent {
     @Input() barcodeOptions;
     @Output() barcodeOptionsChange: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor(public barcodeScannerService: BarcodeScannerService) {
+    constructor(public barcodeScannerService: BarcodeScannerService, public dataService: BarcodeDataService) {
+    }
+
+    isValid() {
+        return this.dataService.validCardNumber;
     }
 
     scanBarcode() {
