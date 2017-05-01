@@ -32,15 +32,7 @@
         </ion-row>
     </ion-grid>
 
-    <ion-grid>
-        <ion-row *ngIf="card.isCustomCard">
-            <ion-item>
-                <ion-label stacked>Card Name</ion-label>
-                <ion-input type="text" [(ngModel)]="cardName"></ion-input>
-            </ion-item>
-        </ion-row>
-
-    </ion-grid>
+    <card-name [(name)]="cardName" *ngIf="card.isCustomCard"></card-name>
 
     <card-number [(num)]="cardNumber" [barcodeOptions]="barcodeOptions"></card-number>
 

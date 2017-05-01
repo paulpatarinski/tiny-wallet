@@ -20,6 +20,7 @@ import { HttpModule } from "@angular/http";
 import { AddCustomPage } from "../pages/add.custom/add";
 import { CardNumberComponent } from "../components/card-number/card.Number";
 import { CommentComponent } from "../components/comment/comment";
+import { CardNameComponent } from "../components/card-name/card.name";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CommentComponent } from "../components/comment/comment";
     CardTypeModal,
     BarcodeComponent,
     CommentComponent,
-    CardNumberComponent
+    CardNumberComponent,
+    CardNameComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -60,7 +62,8 @@ import { CommentComponent } from "../components/comment/comment";
     CardTypeModal,
     BarcodeComponent,
     CommentComponent,
-    CardNumberComponent
+    CardNumberComponent,
+    CardNameComponent
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, BarcodeScanner, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, BarcodeDataService]
 })

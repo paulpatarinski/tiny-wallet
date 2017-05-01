@@ -1,0 +1,8 @@
+<ion-grid>
+    <ion-row>
+        <ion-item>
+            <ion-label stacked>Card Name</ion-label>
+            <ion-input type="text" [(ngModel)]="name" (ngModelChange)="nameChange.emit($event)"></ion-input>
+        </ion-item>
+    </ion-row>
+</ion-grid>
