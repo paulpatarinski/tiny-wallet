@@ -46,10 +46,10 @@ export class EditPage {
 
     canSave() {
         if (this.card.isCustomCard) {
-            return this.dataService.validCardNumber && this.cardName !== "";
+            return this.cardNumber && this.cardName !== "";
         }
 
-        return this.dataService.validCardNumber;
+        return this.cardNumber;
     }
 
     save(existingCard: Card, newCardNumber: string, comment: string, cardName: string, newBarcodeOptions) {

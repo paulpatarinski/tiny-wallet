@@ -10,7 +10,7 @@
         <ion-title>Add</ion-title>
 
         <ion-buttons end>
-            <button ion-button (click)="save(card, cardNumber, comment, barcodeOptions)" [disabled]="!dataService.validCardNumber">
+            <button ion-button (click)="save(card, cardNumber, comment, barcodeOptions)" [disabled]="!canSave()">
                 Save
             </button>
         </ion-buttons>

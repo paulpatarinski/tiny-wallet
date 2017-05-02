@@ -35,6 +35,10 @@ export class AddPage {
             .catch(err => console.log);
     }
 
+    canSave() {
+        return this.cardNumber;
+    }
+
     save(existingCard: Card, newCardNumber: string, comment: string, newBarcodeOptions) {
         var newBarcode = new Barcode(newCardNumber, newBarcodeOptions);
 

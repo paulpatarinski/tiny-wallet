@@ -37,7 +37,7 @@ export class AddCustomPage {
     }
 
     canSave(): Boolean {
-        return this.dataService.validCardNumber && this.cardName !== "";
+        return this.cardNumber && this.cardName !== "";
     }
 
     save(existingCard: Card, newCardNumber: string, comment: string, cardName: string, newBarcodeOptions) {
