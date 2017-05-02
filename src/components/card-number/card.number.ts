@@ -16,7 +16,18 @@ export class CardNumberComponent {
     constructor(public barcodeScannerService: BarcodeScannerService, public dataService: BarcodeDataService) {
     }
 
-    isValid() {
+    isInvalid() {
+        return !this.hasValue() || !this.isExpectedFormat();
+    }
+
+    hasValue() {
+        return this.num;
+    }
+
+    isExpectedFormat() {
+        if (!this.hasValue())
+            return true;
+
         return this.dataService.validCardNumber;
     }
 

@@ -1,7 +1,7 @@
 <ion-grid>
     <ion-row>
         <ion-col col-10>
-            <ion-item [ngClass]="!isValid() ? 'invalid' : ''">
+            <ion-item [ngClass]="{'warning': !isExpectedFormat(), 'error': !hasValue()}">
                 <ion-label stacked>Card Number (required)</ion-label>
                 <ion-input type="text" [(ngModel)]="num" (ngModelChange)="numChange.emit($event)"></ion-input>
             </ion-item>
@@ -12,9 +12,10 @@
         </ion-col>
     </ion-row>
 
-    <ion-row *ngIf="!isValid()" class="invalid-lbl">
+    <ion-row *ngIf="isInvalid()" class="invalid-lbl">
         <ion-col>
-            <ion-label>Card Number does not match expected format</ion-label>
+            <ion-label *ngIf="!hasValue()" class="error-lbl">Card Number is required</ion-label>
+            <ion-label *ngIf="!isExpectedFormat()" class="warning-lbl">Card Number does not match expected format</ion-label>
         </ion-col>
     </ion-row>
 </ion-grid>

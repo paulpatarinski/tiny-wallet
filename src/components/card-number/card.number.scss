@@ -25,14 +25,26 @@ card-number {
         float : right;
     }
 
-    .invalid {  
+    .error {  
         .item-inner {
-            border-bottom: 0.55px solid red;
+            border-bottom: 0.55px solid $red;
         }
     } 
 
-    .invalid-lbl {
-        color: red;
+    .warning {  
+        .item-inner {
+            border-bottom: 0.55px solid $orange;
+        }
+    } 
+
+    .warning-lbl {
+        color: $orange;
+        padding-left: 16px;
+        font-size : 1.2rem;
+    }
+
+    .error-lbl {
+        color: $red;
         padding-left: 16px;
         font-size : 1.2rem;
     }
