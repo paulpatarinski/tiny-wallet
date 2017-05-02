@@ -20,9 +20,15 @@
 
 <ion-content>
     <ion-grid class="card" [style.background]="card.background">
-        <ion-row>
+        <ion-row *ngIf="!card.isCustomCard">
             <ion-col class="logo">
                 <img [src]="card.logoFullPath" />
+            </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="card.isCustomCard" align-items-center>
+            <ion-col>
+                <ion-label class="card-name">{{cardName}}</ion-label>
             </ion-col>
         </ion-row>
         <ion-row>

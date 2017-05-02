@@ -2,7 +2,7 @@
     <ion-row>
         <ion-col col-10>
             <ion-item [ngClass]="{'warning': !isExpectedFormat(), 'error': !hasValue()}">
-                <ion-label stacked>Card Number (required)</ion-label>
+                <ion-label stacked>Card Number</ion-label>
                 <ion-input type="text" [(ngModel)]="num" (ngModelChange)="numChange.emit($event)"></ion-input>
             </ion-item>
         </ion-col>
