@@ -23,6 +23,10 @@ export class BarcodeComponent {
 
     }
 
+    showMediumBarcode() {
+        return this.size === BarcodeSize.Medium;
+    }
+
     ngOnChanges(changes: any) {
         try {
             if (!this.barcodeNumber) {
