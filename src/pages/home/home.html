@@ -16,11 +16,18 @@
 
   <ion-list [hidden]="!showCards">
     <ion-grid class="card" *ngFor="let card of cards" [style.background]="card.background" (click)="navToDetails(card)">
-      <ion-row>
+      <ion-row *ngIf="!card.isCustomCard">
         <ion-col class="logo">
           <img [src]="card.logoFullPath" />
         </ion-col>
       </ion-row>
+
+      <ion-row *ngIf="card.isCustomCard" align-items-center>
+        <ion-col>
+          <ion-label class="card-name">{{card.name}}</ion-label>
+        </ion-col>
+      </ion-row>
+
       <ion-row>
         <ion-col class="barcode-wrapper">
           <barcode [barcodeNumber]="card.barcode.number" [options]="card.barcode.options" [size]="size"></barcode>
