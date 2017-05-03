@@ -17,7 +17,7 @@
     "run": "ionic cordova run ios",
     "run:android": "npm run build && ionic cordova run android",
     "resources": "ionic cordova resources",
-    "ionic:release:build": "npm run build:prod && ionic cordova build ios --release",
+    "ionic:release:build": "ionic cordova build ios --release --prod",
     "ionic:release:build:android": "npm run build:prod && ionic cordova build android --release",
     "install:apk": "adb install apps/tinywallet.apk",
     "prepublish:android": "rimraf apps/*.apk rimraf apps/*.ipa",
