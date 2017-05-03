@@ -42,7 +42,7 @@ platform :ios do
     app_identifier = "com.simpleproductionsinc.tinywallet"
 
     # Compile the ionic app
-    sh("npm run build:prod && ionic build ios --release")
+    sh("npm run ionic:release:build")
     # Get certificate
     cert
     # Get provisioning profile
@@ -79,7 +79,7 @@ platform :ios do
     app_identifier = "com.simpleproductionsinc.tinywallet"
 
     # Compile the ionic app
-    sh("npm run build:prod && ionic build ios --release")
+    sh("npm run ionic:release:build")
     # Get certificate
     cert
     # Get provisioning profile
