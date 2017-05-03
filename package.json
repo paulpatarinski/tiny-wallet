@@ -14,7 +14,7 @@
     "emulate": "ionic emulate ios --livereload --target \"iPhone-6\"",
     "emulate:noreload": "ionic emulate ios --target \"iPhone-6-Plus, 10.2\"",
     "emulate:android": "ionic emulate android --livereload",
-    "run": "npm run build && ionic run ios",
+    "run": "ionic cordova run ios",
     "run:android": "npm run build && ionic run android",
     "resources": "ionic cordova resources",
     "ionic:release:build": "npm run build:prod && ionic build android --release",
