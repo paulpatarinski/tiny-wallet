@@ -6,6 +6,7 @@ import { BarcodeSize } from "../../models/barcode.size";
 import { Barcode } from "../../models/barcode";
 import { CardService } from "../../services/card.service";
 import { BarcodeDataService } from "../../components/barcode/barcode.data.service";
+import { FabricService } from "../../services/fabric";
 
 @Component({
     selector: 'page-add',
@@ -19,7 +20,7 @@ export class AddCustomPage {
     size: BarcodeSize = BarcodeSize.Large;
     barcodeOptions = null;
 
-    constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService, public cardService: CardService, public dataService: BarcodeDataService) {
+    constructor(public navCtrl: NavController, public params: NavParams, public barcodeService: BarcodeScannerService, public cardService: CardService, public dataService: BarcodeDataService, public fabric: FabricService) {
         this.card = params.data.selectedCard;
     }
 
@@ -49,6 +50,8 @@ export class AddCustomPage {
 
         this.cardService.saveCustomCard(existingCard).then((updatedCard) => {
             this.card = updatedCard;
+        }).then(() => {
+            this.fabric.sendCustomEvent("Custom Card Added", { "name": cardName });
         }).then(() => {
             this.navCtrl.pop();
         });

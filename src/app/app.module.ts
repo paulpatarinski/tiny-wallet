@@ -21,6 +21,7 @@ import { AddCustomPage } from "../pages/add.custom/add";
 import { CardNumberComponent } from "../components/card-number/card.number";
 import { CommentComponent } from "../components/comment/comment";
 import { CardNameComponent } from "../components/card-name/card.name";
+import { FabricService } from "../services/fabric";
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import { CardNameComponent } from "../components/card-name/card.name";
     CardNumberComponent,
     CardNameComponent
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, BarcodeScanner, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, BarcodeDataService]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, BarcodeScanner, CardService, StatusBar, SplashScreen, BarcodeScannerService, BarcodeFormatMapper, BarcodeDataService, FabricService]
 })
 
 export class AppModule { }
