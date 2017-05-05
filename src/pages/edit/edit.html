@@ -38,9 +38,9 @@
         </ion-row>
     </ion-grid>
 
-    <card-name [(name)]="cardName" *ngIf="card.isCustomCard"></card-name>
-
     <card-number [(num)]="cardNumber" [(barcodeOptions)]="barcodeOptions"></card-number>
+
+    <card-name [(name)]="cardName" *ngIf="card.isCustomCard"></card-name>
 
     <comment [(comment)]="comment"></comment>
 
