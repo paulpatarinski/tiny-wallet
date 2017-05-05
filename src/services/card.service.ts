@@ -121,7 +121,7 @@ export class CardService {
     }
 
     private getDefaultCustomCard(): Card {
-        var defaultBackground = "#CCCCCC";
+        var defaultBackground = "#9E9E9E";
         var defaultLogoFileName = "custom-card";
         var customCard = new Card(null, "Custom Card", "", defaultBackground, defaultLogoFileName, false);
 
