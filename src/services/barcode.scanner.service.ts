@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BarcodeFormatMapper } from "./barcode.format.mapper";
 import { Platform, LoadingController } from "ionic-angular";
+import { FabricService } from "./fabric";
 
 @Injectable()
 export class BarcodeScannerService {
@@ -13,7 +14,7 @@ export class BarcodeScannerService {
         resultDisplayDuration: 0
     };
 
-    constructor(public formatMapper: BarcodeFormatMapper, public platform: Platform, public loadingCtrl: LoadingController, public barcodeScanner: BarcodeScanner) { }
+    constructor(public formatMapper: BarcodeFormatMapper, public platform: Platform, public loadingCtrl: LoadingController, public barcodeScanner: BarcodeScanner, public fabric: FabricService) { }
 
     scanBarcode(): Promise<any> {
         let loading = this.loadingCtrl.create({
@@ -33,7 +34,7 @@ export class BarcodeScannerService {
 
                 return this.mapBarcodeData(barcodeData);
             }, (err) => {
-                console.log(err);
+                this.fabric.logError(err);
             });
     }
 

@@ -13,4 +13,14 @@ export class FabricService {
 
         (<any>window).fabric.Answers.sendCustomEvent(name, attributes);
     }
+
+    logError(err) {
+        if (!(<any>window).fabric) {
+            console.log("Fabric plugin is not enabled using console log instead");
+            console.log("Error => " + err);
+            return;
+        }
+
+        (<any>window).fabric.Crashlytics.sendNonFatalCrash(err);
+    }
 }  
