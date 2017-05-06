@@ -37,8 +37,8 @@ export class AddCustomPage {
             .catch(err => console.log);
     }
 
-    canSave(): Boolean {
-        return this.cardNumber && this.cardName !== "";
+    canSave() {
+        return this.cardNumber && this.cardName;
     }
 
     save(existingCard: Card, newCardNumber: string, comment: string, cardName: string, newBarcodeOptions) {

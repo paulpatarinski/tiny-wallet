@@ -46,7 +46,7 @@ export class EditPage {
 
     canSave() {
         if (this.card.isCustomCard) {
-            return this.cardNumber && this.cardName !== "";
+            return this.cardNumber && this.cardName;
         }
 
         return this.cardNumber;
