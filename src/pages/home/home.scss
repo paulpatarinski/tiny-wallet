@@ -29,8 +29,7 @@
         }
  
         .card {
-            height: 280px;
-            max-height: 280px;
+            @include set-resp-value((height,max-height),220px,250px,280px); 
             width: 98%;
             margin-top: 0px;
             margin-bottom: 15px;
