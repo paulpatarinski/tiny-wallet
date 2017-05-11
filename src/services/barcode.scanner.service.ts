@@ -8,7 +8,8 @@ import { FabricService } from "./fabric";
 export class BarcodeScannerService {
     private scanningOptions = {
         showTorchButton: true,
-        showFlipCameraButton: true,
+        torchOn: true,
+        showFlipCameraButton: false,
         disableSuccessBeep: true,
         prompt: "Place a barcode inside the scan area",
         resultDisplayDuration: 0
