@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons>
-            <button ion-button (click)="cancel()">
+            <button ion-button (tap)="cancel()">
                 <span ion-text color="primary" showWhen="ios">Cancel</span>
                 <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
             </button>
@@ -10,7 +10,7 @@
         <ion-title>Card Details</ion-title>
 
         <ion-buttons end>
-            <button ion-button (click)="save(card, cardNumber, comment, cardName, barcodeOptions)" [disabled]="!canSave()">
+            <button ion-button (tap)="save(card, cardNumber, comment, cardName, barcodeOptions)" [disabled]="!canSave()">
                 Save
             </button>
         </ion-buttons>

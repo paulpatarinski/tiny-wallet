@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons>
-            <button ion-button (click)="dismiss()">
+            <button ion-button (tap)="dismiss()">
                 <span ion-text color="primary" showWhen="ios">Cancel</span>
                 <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
             </button>
@@ -14,7 +14,7 @@
 
 <ion-content>
     <ion-list no-lines>
-        <ion-item *ngFor="let card of cards" (click)="cardSelected(card)">
+        <ion-item *ngFor="let card of cards" (tap)="cardSelected(card)">
             <ion-avatar item-left>
                 <ion-grid [style.background]="card.background" class="card-logo">
                     <ion-row>

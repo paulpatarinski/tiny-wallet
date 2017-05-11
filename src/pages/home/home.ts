@@ -19,7 +19,7 @@ export class HomePage {
   constructor(public modalCtrl: ModalController, public navCtrl: NavController, public cardService: CardService, public statusBar: StatusBar) {
   }
 
-  navToScan() {
+  navToAdd() {
     let selectCardTypeModal = this.modalCtrl.create(CardTypeModal);
     selectCardTypeModal.present();
   }

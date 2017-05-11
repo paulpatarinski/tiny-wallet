@@ -3,7 +3,7 @@
     <img src="assets/text-logo.svg" class="app-logo" />
 
     <ion-buttons end>
-      <button ion-button (click)="navToScan()">  
+      <button ion-button (tap)="navToAdd()">  
         Add Card
       </button>
     </ion-buttons>
@@ -15,7 +15,7 @@
   <img src="assets/logo.svg" class="large-app-logo" [hidden]="showCards">
 
   <ion-list [hidden]="!showCards">
-    <ion-grid class="card" *ngFor="let card of cards" [style.background]="card.background" (click)="navToDetails(card)">
+    <ion-grid class="card" *ngFor="let card of cards" [style.background]="card.background" (tap)="navToDetails(card)">
       <ion-row *ngIf="!card.isCustomCard">
         <ion-col class="logo">
           <img [src]="card.logoFullPath" />
@@ -36,7 +36,7 @@
     </ion-grid>
   </ion-list>
 
-  <ion-card class="add-card-wrapper" (click)="navToScan()">
+  <ion-card class="add-card-wrapper" (tap)="navToAdd()">
     <ion-grid>
       <ion-row>
         <ion-col align-self-center>
