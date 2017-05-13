@@ -31,7 +31,7 @@ export class MyApp {
       statusBar.styleBlackTranslucent();
       splashScreen.hide();
 
-      if ((<any>window) && (<any>window).cordova.plugins.Keyboard) {
+      if ((<any>window) && (<any>window).cordova && (<any>window).cordova.plugins && (<any>window).cordova.plugins.Keyboard) {
         (<any>window).cordova.plugins.Keyboard.disableScroll(true);
       }
     });
