@@ -9,7 +9,7 @@
     "build": "ionic-app-scripts build --dev",
     "prebuild:prod": "npm run increment",
     "build:prod": "ionic-app-scripts build --prod",
-    "serve": "ionic-app-scripts serve --lab",
+    "serve": "ionic-app-scripts serve --lab --browser chrome",
     "serve:nolab": "ionic-app-scripts serve",
     "emulate": "ionic emulate ios --livereload --target \"iPhone-6\"",
     "emulate:noreload": "ionic cordova emulate ios --target \"iPhone-6-Plus, 10.2\"",
