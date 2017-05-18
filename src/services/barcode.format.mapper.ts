@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { FabricService } from "./fabric";
 
 @Injectable()
 export class BarcodeFormatMapper {
-    constructor() { }
+    constructor(public fabric: FabricService) { }
 
     //Maps between the Scanner format codes & the generator codes
     mapToGeneratorFormat(scannerFormat) {
@@ -44,7 +45,7 @@ export class BarcodeFormatMapper {
             case "RSS_EXPANDED":
                 return defaultFormat;
             default: {
-                alert("Unsupported barcode format: " + scannerFormat);
+                this.fabric.logError("Unsupported barcode format: " + scannerFormat);
                 return defaultFormat;
             }
         }
